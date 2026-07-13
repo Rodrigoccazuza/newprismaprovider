@@ -12,9 +12,24 @@
 <body>
   <div class="loader"><div class="mark">P</div><div>Loading Prisma Provider…</div><div class="bar"></div></div>
   <script>
-    Promise.all(['site/part-1.txt','site/part-2.txt','site/part-3.txt'].map(path=>fetch(path).then(response=>{if(!response.ok)throw new Error(path);return response.text()})))
-      .then(parts=>{document.open();document.write(parts.join(''));document.close()})
-      .catch(()=>{document.body.innerHTML='<p>Unable to load the website. Please refresh the page.</p>'});
+    const pageParts=['site/part-1.txt','site/part-2.txt','site/part-3.txt'];
+    Promise.all([
+      ...pageParts.map(path=>fetch(path).then(response=>{if(!response.ok)throw new Error(path);return response.text()})),
+      fetch('hero-bg.b64').then(response=>{if(!response.ok)throw new Error('hero-bg.b64');return response.text()})
+    ])
+      .then(resources=>{
+        const heroBase64=resources.pop().trim();
+        let html=resources.join('');
+        html=html.replace('--hero-image:none',`--hero-image:url("data:image/webp;base64,${heroBase64}")`);
+        html=html.replace("    fetch('hero-bg.webp').then(r=>r.text()).then(b=>document.documentElement.style.setProperty('--hero-image',`url(data:image/webp;base64,${b.trim()})`)).catch(()=>{});\n",'');
+        document.open();
+        document.write(html);
+        document.close();
+      })
+      .catch(error=>{
+        console.error(error);
+        document.body.innerHTML='<p>Unable to load the website. Please refresh the page.</p>';
+      });
   </script>
 </body>
 </html>
