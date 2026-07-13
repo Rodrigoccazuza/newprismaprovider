@@ -1,24 +1,22 @@
 # Prisma Provider — Website Redesign
 
-A modern, responsive static website for Prisma Provider, designed around the existing navy/gray brand direction with a warmer accent color and a more dynamic client experience.
+A modern, responsive static website for Prisma Provider, designed around the existing navy-and-gray brand direction with warmer coral and gold accents, stronger contrast, and a more dynamic client journey.
 
 ## Included
 
-- Responsive HTML, CSS and JavaScript
+- Responsive single-page website
 - English, Portuguese and Spanish interface switcher
 - Animated hero and client journey dashboard
 - Client testimonial slider
 - Five-step process timeline
 - Service cards and team section
-- Google Calendar booking link
-- Two-step intake form that builds a prefilled WhatsApp message
+- Google Calendar booking integration
+- Intake form that creates a prefilled WhatsApp message
 - Mobile navigation, smooth scrolling and accessibility improvements
 
-## Files
+## File structure
 
-- `index.html` — page content and structure
-- `styles.css` — complete responsive design system
-- `script.js` — navigation, animations, translations, slider and intake form logic
+The full website is contained in `index.html`, including the HTML structure, responsive CSS, and JavaScript interactions. This makes it simple to deploy directly to Hostinger without a build process or external dependencies beyond Google Fonts.
 
 ## Booking integration
 
@@ -32,12 +30,12 @@ Replace this URL in `index.html` if the booking calendar changes.
 
 The intake form validates required fields and opens WhatsApp with the visitor's answers prefilled. The visitor reviews the message before sending it to Prisma at `+1 929-823-4645`.
 
-For server-side email storage, connect the form to a Hostinger PHP handler, Formspree, HubSpot or another CRM endpoint.
+For server-side email storage or CRM automation, connect the form to a Hostinger PHP handler, Formspree, HubSpot, or another endpoint.
 
 ## Deployment to Hostinger
 
-Upload these files to the target domain's `public_html` directory, or connect this repository through Hostinger's Git deployment tool.
+Deploy `index.html` to the target domain's `public_html` directory, or connect this repository through Hostinger's Git deployment tool.
 
 ## Important content note
 
-Team portrait areas are branded placeholders using initials. Replace them with approved team photography when the original high-resolution images are available.
+The team portrait areas currently use branded initial-based placeholders. Replace them with approved high-resolution team photographs when those assets are available.
