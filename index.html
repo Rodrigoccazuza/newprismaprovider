@@ -15,7 +15,7 @@
     const pageParts=['site/part-1.txt','site/part-2.txt','site/part-3.txt'];
     Promise.all([
       ...pageParts.map(path=>fetch(path).then(response=>{if(!response.ok)throw new Error(path);return response.text()})),
-      fetch('hero-bg.webp').then(response=>{if(!response.ok)throw new Error('hero-bg.webp');return response.text()})
+      fetch('assets/hero-background.b64').then(response=>{if(!response.ok)throw new Error('assets/hero-background.b64');return response.text()})
     ])
       .then(resources=>{
         const heroBase64=resources.pop().trim();
