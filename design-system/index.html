@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Prisma Provider brand and web design system">
+<title>Prisma Provider — Design System</title>
+<style>
+:root{
+  --navy:#233B5D;--navy-dark:#111B29;--ink:#152234;--green:#3BE75E;
+  --green-ink:#07591B;--green-soft:#E9FDED;--blue:#AFC1D4;--paper:#F7F8F5;
+  --white:#FFF;--muted:#66717F;--line:#D6DEE5;--error:#A94D4D;--warning:#B57A30;
+  --radius-sm:10px;--radius-md:18px;--radius-lg:28px;--max:1280px;
+  --shadow:0 24px 70px rgba(21,34,52,.10)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#EEF1ED;color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit}.shell{width:min(1540px,calc(100% - 32px));margin:16px auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px}.rail{position:sticky;top:16px;height:calc(100vh - 32px);padding:24px 18px;background:var(--white);border:1px solid var(--line);border-radius:24px;overflow:auto}.rail-logo{width:100%;height:auto;display:block;margin:4px 0 28px}.version{margin:0 10px 12px;color:var(--green-ink);font-size:11px;font-weight:850;letter-spacing:.14em;text-transform:uppercase}.nav{display:grid;gap:4px}.nav a{text-decoration:none;padding:9px 10px;border-radius:9px;color:#526071;font-size:12px;font-weight:750}.nav a:hover,.nav a:focus-visible{background:var(--green-soft);color:var(--green-ink);outline:none}.document{overflow:hidden;background:var(--white);border-radius:28px;box-shadow:var(--shadow)}section{padding:96px clamp(28px,6vw,90px);border-top:1px solid rgba(21,34,52,.08)}section:first-child{border:0}.wrap{max-width:var(--max);margin:auto}.hero{min-height:680px;display:flex;align-items:center;color:var(--white);background:radial-gradient(circle at 90% 10%,rgba(59,231,94,.40),transparent 28%),linear-gradient(130deg,var(--navy-dark),var(--navy))}.hero-logo{width:min(610px,82vw);display:block;margin:0 0 54px}.eyebrow{margin-bottom:14px;color:var(--green-ink);font-size:11px;font-weight:850;letter-spacing:.15em;text-transform:uppercase}.hero .eyebrow{color:var(--green)}h1,h2,h3{margin:0 0 18px;font-family:Manrope,Inter,system-ui,sans-serif;letter-spacing:-.045em}h1{max-width:980px;font-size:clamp(56px,8vw,112px);line-height:.93}h2{max-width:940px;font-size:clamp(38px,5vw,68px);line-height:1.02}h3{font-size:24px;line-height:1.18}.lead{max-width:850px;margin:0;font-size:20px;color:var(--muted)}.hero .lead{color:rgba(255,255,255,.76)}.grid{display:grid;gap:18px;margin-top:40px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}.card{padding:25px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--white)}.card.soft{background:var(--green-soft);border-color:rgba(59,231,94,.35)}.card.dark{background:var(--navy);color:var(--white);border-color:transparent}.card p{margin:0;color:var(--muted);font-size:14px}.card.dark p{color:rgba(255,255,255,.72)}.tag{display:inline-flex;margin-bottom:18px;padding:7px 11px;border-radius:999px;background:#C9F9D2;color:var(--green-ink);font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}.axis strong{display:block;margin-bottom:8px;color:var(--green-ink);font-size:26px}.logo-stage{min-height:230px;display:flex;align-items:center;justify-content:center;padding:30px;border-radius:16px;background:var(--paper)}.logo-stage.dark-stage{background:var(--navy-dark)}.logo-stage img{width:min(100%,520px);height:auto}.mark-stage img{width:min(100%,280px);max-height:260px;object-fit:contain}.rule-list{margin:16px 0 0;padding-left:19px;color:var(--muted)}.swatches{grid-template-columns:repeat(5,1fr)}.swatch{overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#fff}.swatch i{display:block;height:138px}.swatch div{padding:15px}.swatch b{display:block}.swatch code{font-size:12px;color:var(--green-ink)}.status{padding:17px;border-radius:12px;font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}.approved{background:var(--green);color:var(--navy-dark)}.review{background:var(--navy);color:#fff}.action{background:var(--warning);color:#fff}.issue{background:var(--error);color:#fff}.type-display{margin:10px 0 22px;font:800 clamp(40px,5vw,66px)/1 Manrope,Inter,sans-serif;letter-spacing:-.055em}.type-body{font-size:18px;line-height:1.72}.type-accent{font:600 clamp(34px,4vw,50px)/1.08 Georgia,"Times New Roman",serif}.photo{height:250px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(135deg,#DCEFE2,#B9C9D8)}.photo:before{content:"";position:absolute;width:80px;height:80px;left:20%;top:16%;border-radius:50%;background:#BD856E}.photo:after{content:"";position:absolute;width:150px;height:175px;left:13%;top:47%;border-radius:70px 70px 25px 25px;background:var(--navy)}.photo-doc{position:absolute;z-index:2;width:110px;height:80px;right:14%;top:28%;border-radius:8px;background:#fff;box-shadow:0 8px 20px rgba(21,34,52,.12)}.photo-doc:after{content:"";position:absolute;left:18px;right:18px;top:22px;height:5px;border-radius:5px;background:var(--green);box-shadow:0 15px 0 var(--line),0 30px 0 var(--line)}.do{background:var(--green-soft)}.dont{background:#F9EEEE}.icon{width:64px;height:64px;display:grid;place-items:center;margin-bottom:18px;border:2px solid var(--green);border-radius:15px;color:var(--green-ink);font-size:25px;font-weight:900}.texture{min-height:280px;border-radius:20px;background-color:var(--navy);background-image:linear-gradient(rgba(175,193,212,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(175,193,212,.16) 1px,transparent 1px),radial-gradient(circle at 78% 20%,rgba(59,231,94,.52),transparent 27%);background-size:56px 56px,56px 56px,auto}.button{display:inline-flex;align-items:center;justify-content:center;margin:6px 8px 6px 0;padding:14px 21px;border-radius:var(--radius-sm);font-weight:800;text-decoration:none}.primary{background:var(--green);color:var(--navy-dark)}.secondary{background:var(--navy);color:#fff}.outline{border:1px solid var(--line);background:#fff;color:var(--navy)}.service{background:var(--navy);color:#fff}.service p{color:rgba(255,255,255,.72)}.progress{height:10px;margin:22px 0;border-radius:99px;background:var(--line);overflow:hidden}.progress span{display:block;width:78%;height:100%;background:var(--green)}.spec b{display:block;margin-bottom:8px;color:var(--green-ink)}pre{margin:0;padding:24px;border-radius:16px;background:var(--navy-dark);color:#DBE8F3;white-space:pre-wrap;overflow:auto;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace}.check{display:flex;gap:10px;align-items:flex-start}.check:before{content:"✓";flex:0 0 26px;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:var(--navy-dark);font-weight:900}.closing{padding:54px clamp(28px,6vw,90px);background:var(--green);color:var(--navy-dark);font:600 clamp(28px,4vw,46px)/1.18 Georgia,serif}.asset-error{display:none;margin:0;padding:12px 18px;background:#F9EEEE;color:#7D2222;font-size:13px}.asset-error.show{display:block}@media(max-width:1020px){.shell{display:block}.rail{position:relative;height:auto;margin-bottom:16px}.nav{grid-template-columns:repeat(4,1fr)}.g4,.g3,.swatches{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.shell{width:100%;margin:0}.rail,.document{border-radius:0}.nav{grid-template-columns:repeat(2,1fr)}section{padding:68px 22px}.g4,.g3,.g2,.swatches{grid-template-columns:1fr}.hero{min-height:620px}.hero-logo{margin-bottom:42px}}
+</style>
+</head>
+<body>
+<div id="asset-error" class="asset-error">Logo assets could not be loaded. Serve this folder through a local or hosted web server rather than opening it with the file:// protocol.</div>
+<div class="shell">
+<aside class="rail">
+  <img class="rail-logo" data-logo="color" alt="Prisma Provider Digital Services">
+  <div class="version">Design system v1.1</div>
+  <nav class="nav">
+    <a href="#direction">Direction</a><a href="#logos">Logo system</a><a href="#colors">Color</a><a href="#type">Typography</a><a href="#imagery">Imagery</a><a href="#icons">Iconography</a><a href="#ui">UI direction</a><a href="#handoff">Handoff</a>
+  </nav>
+</aside>
+<main class="document">
+<section class="hero"><div class="wrap">
+  <img class="hero-logo" data-logo="white" alt="Prisma Provider Digital Services">
+  <div class="eyebrow">Brand & web design system</div>
+  <h1>Clarity through every complex process.</h1>
+  <p class="lead">A modern visual system for a serious but approachable consulting agency—combining institutional confidence, human reassurance and a bright signal of progress.</p>
+</div></section>
+<section id="direction"><div class="wrap">
+  <div class="eyebrow">01 — Brand direction</div><h2>Serious expertise. Human reassurance.</h2>
+  <p class="lead">The identity should feel precise enough for legal-service processes and warm enough for people making consequential decisions.</p>
+  <div class="grid g4">
+    <article class="card soft"><span class="tag">Precise</span><h3>Structured</h3><p>Clear steps, organized information and confident hierarchy.</p></article>
+    <article class="card soft"><span class="tag">Reassuring</span><h3>Human</h3><p>Real people, calm language and visible progress.</p></article>
+    <article class="card soft"><span class="tag">Progressive</span><h3>Modern</h3><p>Contemporary digital-service cues without looking experimental.</p></article>
+    <article class="card soft"><span class="tag">Accessible</span><h3>Plainspoken</h3><p>Readable, inclusive and multilingual-friendly communication.</p></article>
+  </div>
+  <div class="grid g4 axis">
+    <div class="card"><strong>65 / 35</strong><p>Serious ↔ Approachable</p></div><div class="card"><strong>60 / 40</strong><p>Modern ↔ Timeless</p></div><div class="card"><strong>60 / 40</strong><p>Human ↔ Institutional</p></div><div class="card"><strong>55 / 45</strong><p>Premium ↔ Accessible</p></div>
+  </div>
+</div></section>
+<section id="logos" style="background:var(--paper)"><div class="wrap">
+  <div class="eyebrow">02 — Official logo system</div><h2>The supplied lockups are the source of truth.</h2>
+  <p class="lead">Do not redraw, typeset, stretch, recolor individual pieces or alter the proportions. Preserve clear space equal to at least the height of the small triangular element.</p>
+  <div class="grid g3">
+    <article class="card"><div class="logo-stage"><img data-logo="color" alt="Official Prisma Provider color logo"></div><h3>Primary color</h3><p>Use on white and very light neutral surfaces.</p></article>
+    <article class="card"><div class="logo-stage mark-stage"><img data-logo="mono" alt="Official Prisma Provider monochrome mark"></div><h3>Monochrome mark</h3><p>Use for formal documents, watermark treatments and reduced-color applications.</p></article>
+    <article class="card dark"><div class="logo-stage dark-stage"><img data-logo="white" alt="Official Prisma Provider white logo"></div><h3>Reversed white</h3><p>Use on navy, black or sufficiently dark photographic backgrounds.</p></article>
+  </div>
+  <ul class="rule-list"><li>Minimum digital width for the full lockup: 180 px.</li><li>Never place the full logo directly over a busy photograph without a dark overlay.</li><li>The accent green belongs to the interface system; do not recolor the official logo unless a new approved master is supplied.</li></ul>
+</div></section>
+<section id="colors"><div class="wrap">
+  <div class="eyebrow">03 — Color system</div><h2>Navy authority with Signal Green momentum.</h2>
+  <p class="lead">Signal Green <strong>#3BE75E</strong> is reserved for approvals, progress, active states, highlights and primary calls to action. Use dark navy text on the green for readable contrast.</p>
+  <div class="grid swatches">
+    <div class="swatch"><i style="background:#233B5D"></i><div><b>Authority Navy</b><code>#233B5D</code></div></div><div class="swatch"><i style="background:#3BE75E"></i><div><b>Signal Green</b><code>#3BE75E</code></div></div><div class="swatch"><i style="background:#AFC1D4"></i><div><b>Support Blue</b><code>#AFC1D4</code></div></div><div class="swatch"><i style="background:#F7F8F5"></i><div><b>Paper</b><code>#F7F8F5</code></div></div><div class="swatch"><i style="background:#152234"></i><div><b>Ink</b><code>#152234</code></div></div>
+  </div>
+  <div class="grid g4"><div class="status approved">Approved / success</div><div class="status review">In review</div><div class="status action">Action needed</div><div class="status issue">Issue / error</div></div>
+</div></section>
+<section id="type" style="background:var(--paper)"><div class="wrap">
+  <div class="eyebrow">04 — Typography</div><h2>A rational sans pairing with one editorial accent.</h2>
+  <div class="grid g2">
+    <article class="card"><span class="tag">Manrope / display</span><p class="type-display">Clear decisions. Confident outcomes.</p><p>Use for H1–H4, navigation emphasis, outcomes and key numbers.</p></article>
+    <article class="card dark"><span class="tag">Editorial accent</span><p class="type-accent">“Your case deserves clarity, not confusion.”</p><p>Use Georgia or an approved editorial serif sparingly for short emotional statements and pull quotes.</p></article>
+    <article class="card"><span class="tag">Inter / body & UI</span><p class="type-body">Readable at every stage—from service explanations to form instructions and case-status updates.</p></article>
+    <article class="card"><h3>Recommended scale</h3><p>Display 72–112 px · H1 48–72 px · H2 36–52 px · H3 24–32 px · Body 16–20 px · UI labels 12–14 px.</p></article>
+  </div>
+</div></section>
+<section id="imagery"><div class="wrap">
+  <div class="eyebrow">05 — Human imagery</div><h2>Show relief, confidence and real progress.</h2>
+  <p class="lead">Prioritize documentary-style photographs of clients and consultants in believable moments rather than generic illustrations or legal clichés.</p>
+  <div class="grid g3">
+    <article class="card"><div class="photo"><span class="photo-doc"></span></div><h3>Approval moment</h3><p>A client reading positive news with a natural, restrained reaction.</p></article>
+    <article class="card"><div class="photo" style="background:linear-gradient(135deg,#DFE7EF,#D6F8DE)"><span class="photo-doc"></span></div><h3>Supported process</h3><p>Consultant and client reviewing documents side by side.</p></article>
+    <article class="card"><div class="photo" style="background:linear-gradient(135deg,#CFD8E3,#E7EFE9)"><span class="photo-doc"></span></div><h3>Confident next step</h3><p>A calm client leaving a meeting with organized materials.</p></article>
+  </div>
+  <div class="grid g2"><article class="card do"><h3>Do</h3><p>Natural or soft office light · diverse people and family structures · real documents and devices · genuine reactions · useful negative space.</p></article><article class="card dont"><h3>Avoid</h3><p>Handshake clichés · gavels and courthouse stock imagery · exaggerated celebrations · call-center headsets · heavy blue overlays on skin.</p></article></div>
+</div></section>
+<section id="icons" style="background:var(--paper)"><div class="wrap">
+  <div class="eyebrow">06 — Iconography & texture</div><h2>Structured symbols, not playful cartoons.</h2>
+  <p class="lead">Use one outlined icon family with 1.75–2 px strokes, rounded joins and restrained geometry. Focus on documents, decisions, protection, communication and progress.</p>
+  <div class="grid g4"><article class="card"><div class="icon">▤</div><h3>Case review</h3><p>Documents and requirements.</p></article><article class="card"><div class="icon">✓</div><h3>Approval</h3><p>Completion and verified outcomes.</p></article><article class="card"><div class="icon">◇</div><h3>Protection</h3><p>Security and responsible handling.</p></article><article class="card"><div class="icon">→</div><h3>Progress</h3><p>Stages and next actions.</p></article></div>
+  <div class="grid g2"><div class="texture" aria-label="Grid and green glow texture example"></div><article class="card"><h3>Texture principle</h3><p>Use fine document grids, cropped geometry from the Prisma mark, soft green radial light, restrained glass panels and subtle paper grain. Keep texture below 12% opacity behind text.</p></article></div>
+</div></section>
+<section id="ui"><div class="wrap">
+  <div class="eyebrow">07 — Interface direction</div><h2>Guide people through a case journey.</h2>
+  <p class="lead">Use larger type, shorter sections, human proof, clear process stages and varied conversion opportunities instead of repeating generic full-width blocks.</p>
+  <div class="grid g3">
+    <article class="card"><h3>Buttons</h3><a class="button primary" href="#">Schedule a consultation</a><a class="button secondary" href="#">Explore services</a><a class="button outline" href="#">Read case results</a></article>
+    <article class="card service"><span class="tag">Most requested</span><h3>Document preparation and case organization</h3><p>A structured review to identify missing materials and prepare the next stage.</p><a class="button primary" href="#">View this service</a></article>
+    <article class="card soft"><div class="eyebrow">Case status</div><h3>Ready for submission</h3><div class="progress"><span></span></div><p>Documents reviewed · Requirements confirmed · Final review complete</p></article>
+  </div>
+</div></section>
+<section id="handoff" style="background:var(--paper)"><div class="wrap">
+  <div class="eyebrow">08 — Layout, accessibility & handoff</div><h2>The shared contract between design and development.</h2>
+  <div class="grid g4">
+    <article class="card spec"><b>Grid</b><p>12 columns desktop · 8 tablet · 4 mobile · 1280 px max content · 24 px gutters.</p></article><article class="card spec"><b>Spacing</b><p>8 px base unit · 96–128 px section padding · 24–32 px card padding.</p></article><article class="card spec"><b>Shape</b><p>18 px card radius · 10 px controls · 1 px borders · shadows used sparingly.</p></article><article class="card spec"><b>Accessibility</b><p>16 px minimum body · 44×44 px targets · visible focus · WCAG AA · status never communicated by color alone.</p></article>
+  </div>
+  <div class="grid g2">
+    <pre>:root {
+  --color-brand-navy: #233B5D;
+  --color-brand-signal-green: #3BE75E;
+  --color-surface-paper: #F7F8F5;
+  --color-text-primary: #152234;
+  --font-display: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --radius-card: 18px;
+  --content-max: 1280px;
+}</pre>
+    <article class="card"><h3>Redesign checklist</h3><p class="check">One dominant message and clear hierarchy per section.</p><p class="check">Real people, testimonials, outcomes and visible process stages.</p><p class="check">One icon family, card language, button system and photo treatment.</p><p class="check">A clear primary action supported by contextual secondary actions.</p></article>
+  </div>
+</div></section>
+<footer class="closing">Prisma Provider should feel like a clear path forward.</footer>
+</main>
+</div>
+<script>
+const assets={color:"assets/logo-color.b64",white:"assets/logo-white.b64",mono:"assets/logo-monochrome.b64"};
+Promise.all(Object.entries(assets).map(async([key,path])=>{
+  const response=await fetch(path);if(!response.ok)throw new Error(path);
+  return [key,"data:image/webp;base64,"+(await response.text()).trim()];
+})).then(entries=>{
+  const images=Object.fromEntries(entries);
+  document.querySelectorAll("[data-logo]").forEach(node=>node.src=images[node.dataset.logo]);
+}).catch(error=>{document.getElementById("asset-error").classList.add("show");console.error(error)});
+</script>
+</body>
+</html>
