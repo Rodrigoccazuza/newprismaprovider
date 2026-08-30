@@ -4,6 +4,8 @@ import './styles.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const asset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 const slides = [
   {
     label: 'Your path forward',
@@ -11,7 +13,7 @@ const slides = [
     title: 'Your immigration process deserves a clear path forward.',
     body: 'From the first conversation to document preparation, review, filing and follow-up, Prisma Provider helps you stay organized and understand what comes next.',
     cta: 'Find your service',
-    image: '/images/hero/approval.jpg',
+    image: asset('images/hero/approval.jpg'),
     position: 'center 42%',
     tabletPosition: '62% 30%',
     mobilePosition: '58% 24%'
@@ -22,7 +24,7 @@ const slides = [
     title: 'A Green Card application is more than a stack of forms.',
     body: 'We help you organize the documents, prepare the package and understand each step before it moves forward.',
     cta: 'Explore adjustment of status',
-    image: '/images/hero/adjustment.jpg',
+    image: asset('images/hero/adjustment.jpg'),
     position: 'center 40%',
     tabletPosition: '52% 28%',
     mobilePosition: '51% 24%'
@@ -33,7 +35,7 @@ const slides = [
     title: 'Ready for the next step toward U.S. citizenship?',
     body: 'Prepare your naturalization process with clear instructions, organized documentation and support along the way.',
     cta: 'Explore naturalization',
-    image: '/images/hero/naturalization.jpg',
+    image: asset('images/hero/naturalization.jpg'),
     position: 'center 45%',
     tabletPosition: '50% 29%',
     mobilePosition: '50% 24%'
@@ -44,7 +46,7 @@ const slides = [
     title: 'Your preparation should never be last minute.',
     body: 'We help you understand what needs to be gathered, prepared and reviewed before filing to replace your conditional Green Card.',
     cta: 'Explore removal of conditions',
-    image: '/images/hero/removal.jpg',
+    image: asset('images/hero/removal.jpg'),
     position: 'center 36%',
     tabletPosition: '52% 29%',
     mobilePosition: '52% 25%'
@@ -55,7 +57,7 @@ const slides = [
     title: 'Understand your options in a safe, respectful environment.',
     body: 'Some immigration situations are deeply personal. Our team approaches every conversation with discretion, clarity and care.',
     cta: 'Learn about VAWA',
-    image: '/images/hero/humanitarian.jpg',
+    image: asset('images/hero/humanitarian.jpg'),
     position: 'center 42%',
     tabletPosition: '70% 28%',
     mobilePosition: '72% 23%'
@@ -69,7 +71,7 @@ document.querySelector('#app').innerHTML = `
     <div class="hero__shade"></div>
     <header class="nav glass-shell">
       <a class="brand" href="#" aria-label="Prisma Provider home">
-        <img src="/brand/original/prisma-mark.png" alt="Prisma Provider" />
+        <img src="${asset('brand/original/prisma-mark.png')}" alt="Prisma Provider" />
       </a>
       <nav class="nav__links" aria-label="Primary navigation">
         <a href="#services">Services</a>
@@ -137,7 +139,7 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
     <div class="about-statement reveal">
-      <div class="about-statement__image"><img src="/images/editorial/prism.jpg" alt="Light passing through a glass prism" /></div>
+      <div class="about-statement__image"><img src="${asset('images/editorial/prism.jpg')}" alt="Light passing through a glass prism" /></div>
       <p><span>The paperwork matters.</span> So does the person behind it.</p>
     </div>
   </section>
@@ -216,8 +218,8 @@ document.querySelector('#app').innerHTML = `
       <p class="reveal">Prisma was built around a simple idea: immigration services should feel organized, transparent and human.</p>
     </div>
     <div class="team-grid">
-      <article class="team-card reveal"><div class="team-card__image"><img src="/images/team/leandro-krauss.webp" alt="Leandro Krauss" /></div><div class="team-card__copy"><small>Co-Founder · Immigration Paralegal</small><h3>Leandro Krauss</h3><p>Leandro oversees the full client journey with a sharp eye for detail, ensuring every case is handled with clarity, care and precision.</p></div></article>
-      <article class="team-card team-card--reverse reveal"><div class="team-card__image"><img src="/images/team/jessica-wisniewski.webp" alt="Jessica Wisniewski" /></div><div class="team-card__copy"><small>Co-Founder · Immigration Paralegal</small><h3>Jessica Wisniewski</h3><p>Jessica leads operations and quality control, bringing precision, discipline and thoughtful care to every client package.</p></div></article>
+      <article class="team-card reveal"><div class="team-card__image"><img src="${asset('images/team/leandro-krauss.webp')}" alt="Leandro Krauss" /></div><div class="team-card__copy"><small>Co-Founder · Immigration Paralegal</small><h3>Leandro Krauss</h3><p>Leandro oversees the full client journey with a sharp eye for detail, ensuring every case is handled with clarity, care and precision.</p></div></article>
+      <article class="team-card team-card--reverse reveal"><div class="team-card__image"><img src="${asset('images/team/jessica-wisniewski.webp')}" alt="Jessica Wisniewski" /></div><div class="team-card__copy"><small>Co-Founder · Immigration Paralegal</small><h3>Jessica Wisniewski</h3><p>Jessica leads operations and quality control, bringing precision, discipline and thoughtful care to every client package.</p></div></article>
     </div>
   </section>
 
@@ -268,7 +270,7 @@ document.querySelector('#app').innerHTML = `
 
   <section class="section social-section">
     <div class="social-orbit reveal">
-      <div class="social-orbit__center"><img src="/brand/original/prisma-mark.png" alt="" /><span>Prisma</span></div>
+      <div class="social-orbit__center"><img src="${asset('brand/original/prisma-mark.png')}" alt="" /><span>Prisma</span></div>
       <a class="social-node social-node--instagram" href="https://www.instagram.com/prismaprovider/" target="_blank" rel="noreferrer">Instagram</a>
       <a class="social-node social-node--whatsapp" href="https://wa.me/19298234645" target="_blank" rel="noreferrer">WhatsApp</a>
       <a class="social-node social-node--email" href="mailto:contact@prismaprovider.com">Email</a>
@@ -277,13 +279,13 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section class="final-cta">
-    <img src="/images/editorial/prism.jpg" alt="" />
+    <img src="${asset('images/editorial/prism.jpg')}" alt="" />
     <div class="final-cta__shade"></div>
     <div class="final-cta__content reveal"><span class="section__eyebrow">Your next step</span><h2>You do not have to figure out every step before asking for help.</h2><p>Tell us where you are in your immigration process. We will help you understand what comes next.</p><div><a class="button button--primary" href="#contact"><span>Book a consultation</span></a><a class="button button--outline" href="#services">Explore services</a></div></div>
   </section>
 
   <footer class="site-footer">
-    <div class="footer-brand"><img src="/brand/original/prisma-mark.png" alt="Prisma Provider" /><h2>Clear immigration support for the journey ahead.</h2><p>Fully digital, structured and human-centered immigration document preparation.</p></div>
+    <div class="footer-brand"><img src="${asset('brand/original/prisma-mark.png')}" alt="Prisma Provider" /><h2>Clear immigration support for the journey ahead.</h2><p>Fully digital, structured and human-centered immigration document preparation.</p></div>
     <div class="footer-links"><div><strong>Services</strong><a href="#services">Adjustment of Status</a><a href="#services">Naturalization</a><a href="#services">VAWA</a><a href="#services">USCIS Requests</a></div><div><strong>Prisma</strong><a href="#about">About</a><a href="#stories">Success stories</a><a href="#process">Our process</a><a href="#faq">FAQ</a></div><div><strong>Connect</strong><a href="https://www.instagram.com/prismaprovider/">Instagram</a><a href="https://wa.me/19298234645">WhatsApp</a><a href="mailto:contact@prismaprovider.com">Email</a></div></div>
     <div class="footer-bottom"><p>Prisma Provider is not a law firm and does not provide legal representation. Information on this website is general and is not legal advice.</p><span>© 2026 Prisma Provider</span></div>
   </footer>
