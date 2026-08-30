@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.DS_Store
+._*
+
+# Local design references and source boards
+/*.png
+/*.webp
+/our team/
+/ourservices/
+/slideherosectionimages/
+/why us ?/
