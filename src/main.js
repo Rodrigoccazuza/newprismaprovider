@@ -80,7 +80,7 @@ document.querySelector('#app').innerHTML = `
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav__actions">
-        <a class="button button--light" href="#book">Book a consultation</a>
+        <a class="button button--light" href="#contact">Book a consultation <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         <button class="menu" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
       </div>
       <div class="mobile-nav" aria-hidden="true">
@@ -98,8 +98,8 @@ document.querySelector('#app').innerHTML = `
         <h1></h1>
         <p class="summary"></p>
         <div class="copy__actions">
-          <a class="button button--primary primary-cta" href="#services"><span></span></a>
-          <a class="button button--outline" href="#book">Book a consultation</a>
+          <a class="button button--primary primary-cta" href="#services"><span></span><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+          <a class="button button--outline" href="#contact">Book a consultation <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         </div>
       </div>
 
@@ -135,7 +135,7 @@ document.querySelector('#app').innerHTML = `
       <div class="about-copy reveal">
         <p>Prisma Provider is a digital immigration services company focused on helping clients prepare and organize USCIS documentation with greater clarity and confidence.</p>
         <p>We turn forms, documents, deadlines and requirements into a process you can actually understand.</p>
-        <a class="inline-link" href="#team">Meet Prisma <span>↗</span></a>
+        <a class="inline-link" href="#team">Meet Prisma <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </div>
     </div>
     <div class="about-statement reveal">
@@ -154,19 +154,20 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="services-grid">
       <article class="service-card service-card--featured reveal">
+        <img class="service-card__art" src="${asset('images/services/adjustment-of-status.svg')}" alt="" />
         <span class="service-card__index">01</span>
         <div><small>Permanent residence</small><h3>Adjustment of Status</h3><p>Applying for permanent residency from inside the United States?</p></div>
-        <a href="#contact" aria-label="Explore Adjustment of Status">↗</a>
+        <a href="#contact" aria-label="Explore Adjustment of Status"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
       </article>
-      <article class="service-card reveal"><span class="service-card__index">02</span><div><small>Conditional Green Card</small><h3>Removal of Conditions</h3><p>Prepare the evidence and documentation involved in the I-751 process.</p></div><a href="#contact" aria-label="Explore Removal of Conditions">↗</a></article>
-      <article class="service-card reveal"><span class="service-card__index">03</span><div><small>Citizenship</small><h3>Naturalization</h3><p>Prepare your naturalization process with clear instructions and support.</p></div><a href="#contact" aria-label="Explore Naturalization">↗</a></article>
-      <article class="service-card reveal"><span class="service-card__index">04</span><div><small>Confidential support</small><h3>VAWA</h3><p>Respectful and discreet document preparation for qualifying cases.</p></div><a href="#contact" aria-label="Explore VAWA">↗</a></article>
-      <article class="service-card reveal"><span class="service-card__index">05</span><div><small>Humanitarian filing</small><h3>Asylum</h3><p>Understand the documentation and preparation involved before filing.</p></div><a href="#contact" aria-label="Explore Asylum">↗</a></article>
-      <article class="service-card reveal"><span class="service-card__index">06</span><div><small>RFE · Inquiries · Expedites</small><h3>USCIS Requests</h3><p>Document preparation support for requests and related USCIS matters.</p></div><a href="#contact" aria-label="Explore USCIS Requests">↗</a></article>
-      <article class="service-card reveal"><span class="service-card__index">07</span><div><small>Immigration documents</small><h3>Translations</h3><p>Translation support for documents prepared for immigration-related use.</p></div><a href="#contact" aria-label="Explore Translations">↗</a></article>
-      <article class="service-card service-card--last reveal"><span class="service-card__index">08</span><div><small>EAD · Travel · FOIA</small><h3>Other Services</h3><p>Additional immigration document preparation services built around your needs.</p></div><a href="#contact" aria-label="Explore Other Services">↗</a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/removal-of-conditions.svg')}" alt="" /><span class="service-card__index">02</span><div><small>Conditional Green Card</small><h3>Removal of Conditions</h3><p>Prepare the evidence and documentation involved in the I-751 process.</p></div><a href="#contact" aria-label="Explore Removal of Conditions"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/naturalization.svg')}" alt="" /><span class="service-card__index">03</span><div><small>Citizenship</small><h3>Naturalization</h3><p>Prepare your naturalization process with clear instructions and support.</p></div><a href="#contact" aria-label="Explore Naturalization"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/vawa.svg')}" alt="" /><span class="service-card__index">04</span><div><small>Confidential support</small><h3>VAWA</h3><p>Respectful and discreet document preparation for qualifying cases.</p></div><a href="#contact" aria-label="Explore VAWA"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/asylum.svg')}" alt="" /><span class="service-card__index">05</span><div><small>Humanitarian filing</small><h3>Asylum</h3><p>Understand the documentation and preparation involved before filing.</p></div><a href="#contact" aria-label="Explore Asylum"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/uscis-requests.svg')}" alt="" /><span class="service-card__index">06</span><div><small>RFE · Inquiries · Expedites</small><h3>USCIS Requests</h3><p>Document preparation support for requests and related USCIS matters.</p></div><a href="#contact" aria-label="Explore USCIS Requests"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card reveal"><img class="service-card__art" src="${asset('images/services/translations.svg')}" alt="" /><span class="service-card__index">07</span><div><small>Immigration documents</small><h3>Translations</h3><p>Translation support for documents prepared for immigration-related use.</p></div><a href="#contact" aria-label="Explore Translations"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="service-card service-card--last reveal"><img class="service-card__art" src="${asset('images/services/other-services.svg')}" alt="" /><span class="service-card__index">08</span><div><small>EAD · Travel · FOIA</small><h3>Other Services</h3><p>Additional immigration document preparation services built around your needs.</p></div><a href="#contact" aria-label="Explore Other Services"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
     </div>
-    <div class="section-cta reveal"><p><strong>Not sure which service fits?</strong> Tell us what is happening and we can help identify the next step.</p><a class="button button--primary" href="#contact"><span>Book a consultation</span></a></div>
+    <div class="section-cta reveal"><p><strong>Not sure which service fits?</strong> Tell us what is happening and we can help identify the next step.</p><a class="button button--primary" href="#contact"><span>Book a consultation</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
   </section>
 
   <section class="section benefits-section">
@@ -176,7 +177,7 @@ document.querySelector('#app').innerHTML = `
       <p class="reveal">Immigration paperwork often comes with uncertainty. Our role is to bring structure to it.</p>
     </div>
     <div class="benefits-grid">
-      <article class="benefit-card benefit-card--intro reveal"><span>01</span><h3>Clear next steps</h3><p>Know what we need, what is missing and what happens after each stage.</p><a href="#process">See our process ↗</a></article>
+      <article class="benefit-card benefit-card--intro reveal"><span>01</span><h3>Clear next steps</h3><p>Know what we need, what is missing and what happens after each stage.</p><a href="#process">See our process <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a></article>
       <article class="benefit-card benefit-card--wide reveal"><span>02</span><h3>Organized document preparation</h3><p>Scattered documents become a structured package ready for careful review.</p></article>
       <article class="benefit-card benefit-card--stat reveal"><strong>50</strong><span>States served through one fully digital process.</span></article>
       <article class="benefit-card benefit-card--dark reveal"><span>03</span><h3>Human communication</h3><p>Questions come up. We explain the process in language that makes sense.</p></article>
@@ -206,7 +207,7 @@ document.querySelector('#app').innerHTML = `
     </div>
     <div class="journey-grid">
       <article class="journey-card journey-card--green reveal"><small>Adjustment of Status</small><h3>From document collection to Green Card approval.</h3><ul><li>Document organization</li><li>Form preparation</li><li>Supporting evidence</li><li>Final package review</li></ul><div><span>Outcome</span><strong>Approved</strong></div></article>
-      <article class="journey-card journey-card--image reveal"><small>Naturalization</small><h3>One more step completed. One new U.S. citizen.</h3><p>A preparation journey organized from document checklist through submission.</p><a href="#contact">Start your journey ↗</a></article>
+      <article class="journey-card journey-card--image reveal"><small>Naturalization</small><h3>One more step completed. One new U.S. citizen.</h3><p>A preparation journey organized from document checklist through submission.</p><a href="#contact">Start your journey <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
     </div>
     <div class="metrics reveal"><div><strong>2021</strong><span>Serving clients since</span></div><div><strong>50</strong><span>States served</span></div><div><strong>03</strong><span>Languages supported</span></div><div><strong>100%</strong><span>Digital process</span></div></div>
     <p class="legal-note">Case results vary based on individual circumstances and USCIS decisions. Past outcomes do not guarantee future results.</p>
@@ -237,7 +238,7 @@ document.querySelector('#app').innerHTML = `
       <article class="process-step reveal"><span>06</span><div><small>Review</small><h3>Structured review</h3><p>You confirm the information before the package is finalized.</p></div></article>
       <article class="process-step reveal"><span>07</span><div><small>File</small><h3>Ready to file</h3><p>Final documentation is prepared for the appropriate filing process.</p></div></article>
       <article class="process-step reveal"><span>08</span><div><small>Stay connected</small><h3>Now you wait. We stay connected.</h3><p>We help you understand updates related to the service provided.</p></div></article>
-      <article class="process-step process-step--last reveal"><span>09</span><div><small>Next chapter</small><h3>Careful preparation moves the journey forward.</h3><a href="#contact">Start with a consultation ↗</a></div></article>
+      <article class="process-step process-step--last reveal"><span>09</span><div><small>Next chapter</small><h3>Careful preparation moves the journey forward.</h3><a href="#contact">Start with a consultation <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div></article>
     </div>
   </section>
 
@@ -250,14 +251,14 @@ document.querySelector('#app').innerHTML = `
         <div class="form-row"><label>State<input name="state" type="text" placeholder="Your state" /></label><label>Preferred language<select name="language"><option>English</option><option>Português</option><option>Español</option></select></label></div>
         <label>What would you like help with?<select name="service"><option>I am not sure</option><option>Adjustment of Status</option><option>Removal of Conditions</option><option>Naturalization</option><option>VAWA</option><option>Asylum</option><option>RFE / USCIS Request</option><option>Translation</option><option>Other</option></select></label>
         <label>Tell us briefly about your situation<textarea name="message" rows="4" placeholder="You do not need to include sensitive personal information here."></textarea></label>
-        <button class="button button--primary" type="submit"><span>Send my information</span></button>
+        <button class="button button--primary" type="submit"><span>Send my information</span><i class="bi bi-send" aria-hidden="true"></i></button>
         <p class="form-status" role="status"></p>
       </form>
     </div>
   </section>
 
   <section class="section faq-section" id="faq">
-    <div class="faq-intro"><span class="section__eyebrow reveal">Frequently asked questions</span><h2 class="display-title reveal">A few answers before we talk.</h2><p class="reveal">Still have a question?</p><a class="inline-link reveal" href="#contact">Talk to Prisma <span>↗</span></a></div>
+    <div class="faq-intro"><span class="section__eyebrow reveal">Frequently asked questions</span><h2 class="display-title reveal">A few answers before we talk.</h2><p class="reveal">Still have a question?</p><a class="inline-link reveal" href="#contact">Talk to Prisma <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div>
     <div class="faq-list">
       <details class="faq-item reveal" open><summary>Do I need to live in New York to work with Prisma?<span></span></summary><p>No. Prisma Provider operates digitally and works with clients across the United States.</p></details>
       <details class="faq-item reveal"><summary>I do not know which service I need. Can I still contact you?<span></span></summary><p>Yes. Tell us about your situation and we can help identify which Prisma service may fit your needs.</p></details>
@@ -281,7 +282,7 @@ document.querySelector('#app').innerHTML = `
   <section class="final-cta">
     <img src="${asset('images/editorial/prism.jpg')}" alt="" />
     <div class="final-cta__shade"></div>
-    <div class="final-cta__content reveal"><span class="section__eyebrow">Your next step</span><h2>You do not have to figure out every step before asking for help.</h2><p>Tell us where you are in your immigration process. We will help you understand what comes next.</p><div><a class="button button--primary" href="#contact"><span>Book a consultation</span></a><a class="button button--outline" href="#services">Explore services</a></div></div>
+    <div class="final-cta__content reveal"><span class="section__eyebrow">Your next step</span><h2>You do not have to figure out every step before asking for help.</h2><p>Tell us where you are in your immigration process. We will help you understand what comes next.</p><div><a class="button button--primary" href="#contact"><span>Book a consultation</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a><a class="button button--outline" href="#services">Explore services <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div></div>
   </section>
 
   <footer class="site-footer">
@@ -422,7 +423,10 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 }
 
 document.querySelectorAll('.faq-item').forEach((item) => {
+  const icon = item.querySelector('summary span')
+  icon.className = item.open ? 'bi bi-x-lg' : 'bi bi-plus-lg'
   item.addEventListener('toggle', () => {
+    icon.className = item.open ? 'bi bi-x-lg' : 'bi bi-plus-lg'
     if (!item.open) return
     document.querySelectorAll('.faq-item').forEach((other) => {
       if (other !== item) other.removeAttribute('open')
