@@ -9,16 +9,7 @@ const instagramFeedB64 = asset('images/social/prisma-instagram-feed.b64')
 
 function enhancePrismaSite() {
   const trustStrip = document.querySelector('.trust-strip')
-  if (trustStrip) {
-    trustStrip.classList.add('achievement-bar')
-    trustStrip.setAttribute('aria-label', 'Prisma Provider highlights')
-    trustStrip.innerHTML = `
-      <div class="trust-strip__item"><strong>2021<span>+</span></strong><small>Serving clients since</small></div>
-      <div class="trust-strip__item"><strong>50<span>+</span></strong><small>States served</small></div>
-      <div class="trust-strip__item"><strong>03<span>+</span></strong><small>Languages supported</small></div>
-      <div class="trust-strip__item"><strong>100<span>%</span></strong><small>Digital process</small></div>
-    `
-  }
+  if (trustStrip) trustStrip.remove()
 
   const socialSection = document.querySelector('.social-section')
   if (socialSection) {
