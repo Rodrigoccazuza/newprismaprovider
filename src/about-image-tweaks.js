@@ -8,10 +8,17 @@ aboutImageStyle.textContent = `
   }
 
   @media (max-width: 720px) {
-    /* Mobile: move the image upward and strengthen the bottom-to-top fade */
+    /* Mobile: keep the complete subject visible inside the card. */
+    .about-statement__image {
+      background: #030405;
+    }
+
     .about-statement img {
-      transform: translateY(-20%);
-      height: 125%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      transform: none;
     }
 
     .about-statement__image:after {
