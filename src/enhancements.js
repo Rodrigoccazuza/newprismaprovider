@@ -11,6 +11,12 @@ function enhancePrismaSite() {
   const trustStrip = document.querySelector('.trust-strip')
   if (trustStrip) trustStrip.remove()
 
+  const metrics = document.querySelector('.metrics')
+  if (metrics) metrics.remove()
+
+  const metricsLegalNote = document.querySelector('.journeys-section .legal-note')
+  if (metricsLegalNote) metricsLegalNote.remove()
+
   const socialSection = document.querySelector('.social-section')
   if (socialSection) {
     socialSection.innerHTML = `
