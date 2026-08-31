@@ -2,6 +2,8 @@ import './enhancements.css'
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const instagramAvatar = 'https://ugc.production.linktr.ee/01686030-d03f-4c14-8570-68d323e26405_Logo-2024.png'
+const instagramUrl = 'https://www.instagram.com/prismaprovider/'
+const instagramFeedB64 = asset('images/social/prisma-instagram-feed.b64')
 
 function enhancePrismaSite() {
   const trustStrip = document.querySelector('.trust-strip')
@@ -24,35 +26,40 @@ function enhancePrismaSite() {
         <div class="social-showcase__orbit social-showcase__orbit--two"></div>
         <div class="social-showcase__avatar social-showcase__avatar--one"><img src="${asset('images/team/leandro-krauss.webp')}" alt="" /></div>
         <div class="social-showcase__avatar social-showcase__avatar--two"><img src="${asset('images/team/jessica-wisniewski.webp')}" alt="" /></div>
-        <div class="phone-mockup" aria-label="Prisma Provider Instagram preview">
-          <div class="phone-mockup__speaker"></div>
-          <div class="phone-screen">
-            <div class="ig-topbar"><strong>9:41</strong><span><i class="bi bi-wifi"></i><i class="bi bi-battery-full"></i></span></div>
-            <div class="ig-profile">
-              <img src="${instagramAvatar}" alt="Prisma Provider Instagram profile" />
-              <div><strong>@prismaprovider</strong><small>Your Path to Citizenship</small></div>
-              <i class="bi bi-three-dots"></i>
+        <a class="phone-feed-link" href="${instagramUrl}" target="_blank" rel="noreferrer" aria-label="Open Prisma Provider on Instagram">
+          <div class="phone-mockup" aria-label="Prisma Provider Instagram feed preview">
+            <div class="phone-mockup__speaker"></div>
+            <div class="phone-screen phone-screen--feed">
+              <img class="phone-feed-image" alt="Prisma Provider Instagram profile and post grid" />
+              <span class="phone-feed-hint"><i class="bi bi-instagram"></i> Tap to open Instagram</span>
             </div>
-            <div class="ig-story-row">
-              <span><b>Start here</b></span><span><b>Services</b></span><span><b>Reviews</b></span><span><b>FAQ</b></span>
-            </div>
-            <div class="ig-post ig-post--hero"><div><small>PRISMA PROVIDER</small><strong>You focus on your life. We take care of the rest.</strong></div></div>
-            <div class="ig-grid"><div>Green Card</div><div>Citizenship</div><div>VAWA</div><div>USCIS</div></div>
-            <div class="ig-bottom"><i class="bi bi-house-door-fill"></i><i class="bi bi-search"></i><i class="bi bi-plus-square"></i><i class="bi bi-play-btn"></i><i class="bi bi-person-circle"></i></div>
           </div>
-        </div>
+        </a>
       </div>
       <div class="social-copy social-copy--new">
         <span class="section__eyebrow reveal">Stay connected</span>
         <h2 class="display-title reveal">Your path does not have to feel confusing.</h2>
         <p class="reveal">Follow Prisma for practical immigration information, process updates, client stories and answers to the questions people ask us every day.</p>
         <div class="social-actions reveal">
-          <a class="button button--primary" href="https://www.instagram.com/prismaprovider/" target="_blank" rel="noreferrer"><i class="bi bi-instagram"></i><span>Follow on Instagram</span></a>
+          <a class="button button--primary" href="${instagramUrl}" target="_blank" rel="noreferrer"><i class="bi bi-instagram"></i><span>Follow on Instagram</span></a>
           <a class="button button--outline" href="https://wa.me/19298234645" target="_blank" rel="noreferrer"><i class="bi bi-whatsapp"></i><span>Message on WhatsApp</span></a>
           <a class="button button--outline" href="mailto:contact@prismaprovider.com"><i class="bi bi-envelope"></i><span>Email Prisma</span></a>
         </div>
       </div>
     `
+
+    const feedImage = socialSection.querySelector('.phone-feed-image')
+    if (feedImage) {
+      fetch(instagramFeedB64)
+        .then((response) => {
+          if (!response.ok) throw new Error('Could not load Instagram feed screenshot')
+          return response.text()
+        })
+        .then((base64) => {
+          feedImage.src = `data:image/jpeg;base64,${base64.trim()}`
+        })
+        .catch((error) => console.error(error))
+    }
   }
 
   const footer = document.querySelector('.site-footer')
