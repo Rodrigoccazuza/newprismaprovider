@@ -181,7 +181,7 @@ function enhancePrismaSite() {
             </div>
             <div class="footer-contact-showcase__portrait" aria-hidden="true">
               <div class="footer-contact-showcase__halo"></div>
-              <img src="${asset('images/footer/trasparentTeam.png')}" alt="" />
+              <img src="${asset('images/footer/prismaTeam.png')}" alt="" />
             </div>
           </div>
         </section>
