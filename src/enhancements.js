@@ -1,4 +1,5 @@
 import './enhancements.css'
+import './instagram-feed.css'
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const instagramAvatar = 'https://ugc.production.linktr.ee/01686030-d03f-4c14-8570-68d323e26405_Logo-2024.png'
