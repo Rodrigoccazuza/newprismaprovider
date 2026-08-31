@@ -1,6 +1,7 @@
 import './enhancements.css'
 import './instagram-feed.css'
 import './footer-showcase.css'
+import './line-awesome-enhancements.css'
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const instagramAvatar = 'https://ugc.production.linktr.ee/01686030-d03f-4c14-8570-68d323e26405_Logo-2024.png'
@@ -16,6 +17,49 @@ function enhancePrismaSite() {
 
   const metricsLegalNote = document.querySelector('.journeys-section .legal-note')
   if (metricsLegalNote) metricsLegalNote.remove()
+
+  const serviceIcons = [
+    'las la-passport',
+    'las la-id-card',
+    'las la-landmark',
+    'las la-hand-holding-heart',
+    'las la-hands-helping',
+    'las la-file-alt',
+    'las la-language',
+    'las la-layer-group'
+  ]
+
+  document.querySelectorAll('.services-section .service-card').forEach((card, index) => {
+    const artwork = card.querySelector('.service-card__art')
+    if (artwork) artwork.remove()
+    if (!card.querySelector('.service-card__line-icon')) {
+      card.insertAdjacentHTML('afterbegin', `<i class="service-card__line-icon ${serviceIcons[index] || 'las la-file-alt'}" aria-hidden="true"></i>`)
+    }
+  })
+
+  const servicesCtaButton = document.querySelector('.services-section .section-cta .button')
+  if (servicesCtaButton) servicesCtaButton.remove()
+
+  const processIcons = [
+    'las la-comments',
+    'las la-search',
+    'las la-clipboard-check',
+    'las la-folder-open',
+    'las la-edit',
+    'las la-check-double',
+    'las la-paper-plane',
+    'las la-hourglass-half',
+    'las la-flag'
+  ]
+
+  document.querySelectorAll('.process-line .process-step').forEach((step, index) => {
+    const badge = step.querySelector(':scope > span')
+    if (badge) {
+      badge.classList.add('process-step__icon')
+      badge.innerHTML = `<i class="${processIcons[index] || 'las la-check'}" aria-hidden="true"></i>`
+      badge.setAttribute('aria-label', `Step ${index + 1}`)
+    }
+  })
 
   const socialSection = document.querySelector('.social-section')
   if (socialSection) {
