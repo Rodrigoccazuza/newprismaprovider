@@ -13,6 +13,13 @@ function applyFinalTweaks() {
     aboutImage.alt = 'Woman holding a U.S. flag and immigration document'
   }
 
+  // Your Next Step: replace the prism image with the requested editorial photo.
+  const nextStepImage = document.querySelector('.final-cta > img')
+  if (nextStepImage) {
+    nextStepImage.src = asset('images/editorial/C951D67C-AD2D-4933-A670-A007827FC3A5.png')
+    nextStepImage.alt = ''
+  }
+
   if (!document.querySelector('#prisma-final-tweaks')) {
     const styles = document.createElement('style')
     styles.id = 'prisma-final-tweaks'
@@ -48,8 +55,15 @@ function applyFinalTweaks() {
         background: linear-gradient(0deg, rgba(3,4,5,.95) 0%, rgba(3,4,5,.58) 32%, rgba(3,4,5,.08) 72%) !important;
       }
 
+      /* Keep the replacement photo framed correctly in the Your Next Step card. */
+      .final-cta > img {
+        object-fit: cover;
+        object-position: center center;
+      }
+
       @media (max-width: 720px) {
         .about-statement__image img { object-position: 58% center; }
+        .final-cta > img { object-position: center center; }
       }
 
       @media (prefers-reduced-motion: reduce) {
