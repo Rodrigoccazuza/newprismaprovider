@@ -5,7 +5,7 @@ import './footer-showcase.css'
 const asset = (path) => `${import.meta.env.BASE_URL}${path}`
 const instagramAvatar = 'https://ugc.production.linktr.ee/01686030-d03f-4c14-8570-68d323e26405_Logo-2024.png'
 const instagramUrl = 'https://www.instagram.com/prismaprovider/'
-const instagramFeedB64 = asset('images/social/prisma-instagram-feed.b64')
+const instagramMobilePreview = asset('images/social/socialMedia.png')
 
 function enhancePrismaSite() {
   if (!document.querySelector('#line-awesome-prisma-styles')) {
@@ -65,7 +65,7 @@ function enhancePrismaSite() {
           <div class="phone-mockup" aria-label="Prisma Provider Instagram feed preview">
             <div class="phone-mockup__speaker"></div>
             <div class="phone-screen phone-screen--feed">
-              <img class="phone-feed-image" alt="Prisma Provider Instagram profile and post grid" />
+              <img class="phone-feed-image" src="${instagramMobilePreview}" alt="Prisma Provider Instagram profile and post grid" />
               <span class="phone-feed-hint"><i class="bi bi-instagram"></i> Tap to open Instagram</span>
             </div>
           </div>
@@ -82,19 +82,6 @@ function enhancePrismaSite() {
         </div>
       </div>
     `
-
-    const feedImage = socialSection.querySelector('.phone-feed-image')
-    if (feedImage) {
-      fetch(instagramFeedB64)
-        .then((response) => {
-          if (!response.ok) throw new Error('Could not load Instagram feed screenshot')
-          return response.text()
-        })
-        .then((base64) => {
-          feedImage.src = `data:image/jpeg;base64,${base64.trim()}`
-        })
-        .catch((error) => console.error(error))
-    }
   }
 
   const footer = document.querySelector('.site-footer')
