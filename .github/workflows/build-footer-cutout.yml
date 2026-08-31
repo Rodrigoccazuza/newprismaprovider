@@ -1,0 +1,106 @@
+name: Build high-resolution footer portrait
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build-footer-cutout.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-footer-cutout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install image tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install "rembg[cpu]" pillow
+
+      - name: Download original Prisma founders portrait
+        run: |
+          curl --fail --location --retry 4 --retry-delay 3 \
+            --user-agent "Mozilla/5.0" \
+            "https://prismaproviders.com/wp-content/uploads/2025/07/6J6A2211-scaled.jpg" \
+            --output /tmp/prisma-founders-source.jpg
+          file /tmp/prisma-founders-source.jpg
+
+      - name: Remove background and prepare 4K transparent asset
+        run: |
+          python - <<'PY'
+          from io import BytesIO
+          from pathlib import Path
+          from PIL import Image
+          from rembg import remove
+
+          source_path = Path('/tmp/prisma-founders-source.jpg')
+          output_path = Path('public/images/footer/prisma-founders-cutout-4k.webp')
+          output_path.parent.mkdir(parents=True, exist_ok=True)
+
+          source = Image.open(source_path).convert('RGBA')
+          cutout_bytes = remove(
+              source,
+              alpha_matting=True,
+              alpha_matting_foreground_threshold=240,
+              alpha_matting_background_threshold=10,
+              alpha_matting_erode_size=8,
+          )
+          cutout = Image.open(BytesIO(cutout_bytes)).convert('RGBA')
+
+          alpha = cutout.getchannel('A')
+          bbox = alpha.getbbox()
+          if bbox:
+              left, top, right, bottom = bbox
+              pad_x = max(24, int((right - left) * 0.025))
+              pad_y = max(24, int((bottom - top) * 0.025))
+              left = max(0, left - pad_x)
+              top = max(0, top - pad_y)
+              right = min(cutout.width, right + pad_x)
+              bottom = min(cutout.height, bottom + pad_y)
+              cutout = cutout.crop((left, top, right, bottom))
+
+          target_long_edge = 4096
+          scale = target_long_edge / max(cutout.width, cutout.height)
+          size = (
+              max(1, round(cutout.width * scale)),
+              max(1, round(cutout.height * scale)),
+          )
+          cutout = cutout.resize(size, Image.Resampling.LANCZOS)
+
+          cutout.save(
+              output_path,
+              'WEBP',
+              quality=94,
+              method=6,
+              lossless=False,
+              exact=True,
+          )
+
+          print(f'Created {output_path}: {cutout.width}x{cutout.height}')
+          print(f'Alpha range: {cutout.getchannel("A").getextrema()}')
+          PY
+
+      - name: Commit generated footer asset
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/footer/prisma-founders-cutout-4k.webp
+          if git diff --cached --quiet; then
+            echo "No image changes to commit."
+          else
+            git commit -m "Add transparent 4K Prisma founders portrait"
+            git push origin HEAD:main
+          fi
