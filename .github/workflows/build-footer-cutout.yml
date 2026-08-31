@@ -114,5 +114,6 @@ jobs:
             echo "No image changes to commit."
           else
             git commit -m "Add transparent 4K Prisma founders portrait"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
