@@ -41,36 +41,41 @@ jobs:
       - name: Remove background and prepare 4K transparent asset
         run: |
           python - <<'PY'
-          from io import BytesIO
           from pathlib import Path
-          from PIL import Image
-          from rembg import remove
+          from PIL import Image, ImageFilter
+          from rembg import remove, new_session
 
           source_path = Path('/tmp/prisma-founders-source.jpg')
           output_path = Path('public/images/footer/prisma-founders-cutout-4k.webp')
           output_path.parent.mkdir(parents=True, exist_ok=True)
 
           source = Image.open(source_path).convert('RGBA')
-          cutout_bytes = remove(
+          session = new_session('u2net_human_seg')
+          cutout = remove(
               source,
+              session=session,
               alpha_matting=True,
-              alpha_matting_foreground_threshold=240,
-              alpha_matting_background_threshold=10,
-              alpha_matting_erode_size=8,
+              alpha_matting_foreground_threshold=235,
+              alpha_matting_background_threshold=12,
+              alpha_matting_erode_size=6,
           )
-          cutout = Image.open(BytesIO(cutout_bytes)).convert('RGBA')
+
+          if not isinstance(cutout, Image.Image):
+              raise TypeError(f'Expected PIL Image from rembg, got {type(cutout)!r}')
+          cutout = cutout.convert('RGBA')
 
           alpha = cutout.getchannel('A')
           bbox = alpha.getbbox()
           if bbox:
               left, top, right, bottom = bbox
-              pad_x = max(24, int((right - left) * 0.025))
-              pad_y = max(24, int((bottom - top) * 0.025))
-              left = max(0, left - pad_x)
-              top = max(0, top - pad_y)
-              right = min(cutout.width, right + pad_x)
-              bottom = min(cutout.height, bottom + pad_y)
-              cutout = cutout.crop((left, top, right, bottom))
+              pad_x = max(30, int((right - left) * 0.03))
+              pad_y = max(30, int((bottom - top) * 0.03))
+              cutout = cutout.crop((
+                  max(0, left - pad_x),
+                  max(0, top - pad_y),
+                  min(cutout.width, right + pad_x),
+                  min(cutout.height, bottom + pad_y),
+              ))
 
           target_long_edge = 4096
           scale = target_long_edge / max(cutout.width, cutout.height)
@@ -80,17 +85,24 @@ jobs:
           )
           cutout = cutout.resize(size, Image.Resampling.LANCZOS)
 
-          cutout.save(
+          rgb = Image.new('RGB', cutout.size, 'white')
+          rgb.paste(cutout.convert('RGB'), mask=cutout.getchannel('A'))
+          rgb = rgb.filter(ImageFilter.UnsharpMask(radius=1.35, percent=112, threshold=3))
+          sharpened = rgb.convert('RGBA')
+          sharpened.putalpha(cutout.getchannel('A'))
+
+          sharpened.save(
               output_path,
               'WEBP',
-              quality=94,
+              quality=95,
               method=6,
               lossless=False,
               exact=True,
           )
 
-          print(f'Created {output_path}: {cutout.width}x{cutout.height}')
-          print(f'Alpha range: {cutout.getchannel("A").getextrema()}')
+          print(f'Created {output_path}: {sharpened.width}x{sharpened.height}')
+          print(f'Alpha range: {sharpened.getchannel("A").getextrema()}')
+          print(f'File size: {output_path.stat().st_size / 1024:.0f} KB')
           PY
 
       - name: Commit generated footer asset
