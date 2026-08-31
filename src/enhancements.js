@@ -64,15 +64,30 @@ function enhancePrismaSite() {
   }
 
   const footer = document.querySelector('.site-footer')
-  if (footer && !document.querySelector('.footer-profile-cutout')) {
-    footer.insertAdjacentHTML('beforebegin', `
-      <section class="footer-profile-cutout" aria-label="Prisma Provider">
-        <div class="footer-profile-cutout__glow"></div>
-        <img src="${instagramAvatar}" alt="Prisma Provider" />
-        <p>Your Path to Citizenship</p>
-        <h2>You focus on your life. We take care of the rest.</h2>
-      </section>
-    `)
+  if (footer) {
+    footer.classList.add('site-footer--silver')
+
+    if (!document.querySelector('.footer-contact-showcase')) {
+      footer.insertAdjacentHTML('beforebegin', `
+        <section class="footer-contact-showcase" aria-label="Contact Prisma Provider">
+          <div class="footer-contact-showcase__inner">
+            <div class="footer-contact-showcase__copy reveal">
+              <span class="footer-contact-showcase__eyebrow">Your path to citizenship</span>
+              <h2>Ready for your next step?</h2>
+              <p>Tell us where you are in your immigration process. We will help you understand what comes next, organize what is needed and keep the process moving.</p>
+              <div class="footer-contact-showcase__actions">
+                <a class="button button--primary" href="#contact"><span>Book a consultation</span><i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+                <a class="footer-contact-showcase__email" href="mailto:contact@prismaprovider.com">contact@prismaprovider.com</a>
+              </div>
+            </div>
+            <div class="footer-contact-showcase__portrait" aria-hidden="true">
+              <div class="footer-contact-showcase__halo"></div>
+              <img src="${asset('images/footer/prisma-founders.jpg?v=2')}" alt="" />
+            </div>
+          </div>
+        </section>
+      `)
+    }
   }
 
   if (!document.querySelector('.floating-whatsapp')) {
