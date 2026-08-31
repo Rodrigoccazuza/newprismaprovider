@@ -1,7 +1,7 @@
 const processStyle = document.createElement('style')
 processStyle.id = 'process-default-state'
 processStyle.textContent = `
-  /* How it works: the former section-hover state is now the permanent state. */
+  /* How it works: former section-hover state is now the permanent default. */
   .process-line,
   .process-line:hover {
     border-color: rgba(255,255,255,.62) !important;
@@ -18,41 +18,38 @@ processStyle.textContent = `
   }
 
   .process-line .process-step,
-  .process-line:hover .process-step,
-  .process-line .process-step:hover {
+  .process-line:hover .process-step {
     padding-inline: 24px !important;
     border-bottom-color: rgba(255,255,255,.17) !important;
     background: transparent !important;
     box-shadow: none !important;
   }
 
-  .process-line .process-step h3,
-  .process-line:hover .process-step h3,
-  .process-line .process-step:hover h3 {
-    color: #f7f8f9 !important;
+  .process-line .process-step h3 { color: #f7f8f9 !important; }
+  .process-line .process-step p { color: #b9bec5 !important; }
+  .process-line .process-step small { color: #d7dbe0 !important; }
+
+  /* Preserve the original per-line hover interaction. */
+  .process-line .process-step:hover {
+    background: linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,.035)) !important;
+    box-shadow: inset 3px 0 rgba(193,255,114,.7) !important;
   }
 
-  .process-line .process-step p,
-  .process-line:hover .process-step p,
-  .process-line .process-step:hover p {
-    color: #b9bec5 !important;
-  }
-
-  .process-line .process-step small,
-  .process-line:hover .process-step small,
-  .process-line .process-step:hover small {
-    color: #d7dbe0 !important;
-  }
-
-  .process-line .process-step > span,
   .process-line .process-step:hover > span {
-    transform: none !important;
+    color: #0a0c0e !important;
+    border-color: rgba(255,255,255,.8) !important;
+    background: linear-gradient(145deg,#f4f6f8,#afb6be) !important;
+    box-shadow: inset 0 1px #fff,0 8px 20px #0005 !important;
+    transform: scale(1.08) !important;
+  }
+
+  .process-line .process-step:hover .process-step__icon i {
+    transform: scale(1.06) !important;
   }
 
   @media (max-width: 720px) {
     .process-line .process-step,
-    .process-line:hover .process-step,
-    .process-line .process-step:hover {
+    .process-line:hover .process-step {
       padding-inline: 14px !important;
     }
   }
