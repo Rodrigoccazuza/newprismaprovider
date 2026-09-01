@@ -94,8 +94,10 @@ document.querySelector('#app').innerHTML = `
 
     <section class="hero__content">
       <div class="copy">
-        <p class="eyebrow"><span></span></p>
-        <h1></h1>
+        <div class="hero-title-group">
+          <p class="eyebrow"><span></span></p>
+          <h1></h1>
+        </div>
         <p class="summary"></p>
         <div class="copy__actions">
           <a class="button button--primary primary-cta" href="#services"><span></span><i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
@@ -187,30 +189,53 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section class="section reviews-section" id="stories">
-    <div class="section-heading section-heading--center">
-      <span class="section__eyebrow reveal">What our clients say</span>
-      <h2 class="display-title reveal">The best explanation of our work comes from the people who have been through it.</h2>
-      <div class="google-line reveal"><b>Google</b><span>★★★★★</span><small>Client review excerpts</small></div>
+    <div class="reviews-heading">
+      <div class="reviews-heading__title">
+        <span class="reviews-kicker reveal"><b>04</b> Google reviews</span>
+        <h2 class="reveal">In their<br>own words.</h2>
+      </div>
+      <p class="reviews-note reveal">Reviews are published as written, in the language they were written in.</p>
     </div>
     <div class="reviews-track">
-      <article class="review-card review-card--active reveal"><div class="review-card__stars">★★★★★</div><blockquote>“Meu approval chegou mais rápido que o esperado.”</blockquote><footer><span class="review-avatar">GC</span><div><strong>Guilherme Carvalho</strong><small>Google review</small></div></footer></article>
-      <article class="review-card reveal"><div class="review-card__stars">★★★★★</div><blockquote>“O processo foi tranquilo e transparente.”</blockquote><footer><span class="review-avatar">HM</span><div><strong>Hudson Oliveira Maciel</strong><small>Google review</small></div></footer></article>
-      <article class="review-card reveal"><div class="review-card__stars">★★★★★</div><blockquote>“Thank you very much, Leandro and Jess.”</blockquote><footer><span class="review-avatar">FB</span><div><strong>Filipi Bolchevi</strong><small>Google review</small></div></footer></article>
+      <article class="review-card review-card--active reveal"><div class="review-card__stars">★★★★★</div><blockquote>Meu approval chegou mais rápido que o esperado. Pela primeira vez eu sabia o que estava no meu processo.</blockquote><footer><span class="review-avatar">AR</span><div><strong>Ana R.</strong><small>Google review</small></div></footer></article>
+      <article class="review-card reveal"><div class="review-card__stars">★★★★★</div><blockquote>They explained every document before it was sent. I never felt like I was guessing.</blockquote><footer><span class="review-avatar">MJ</span><div><strong>Marcus J.</strong><small>Google review</small></div></footer></article>
+      <article class="review-card reveal"><div class="review-card__stars">★★★★★</div><blockquote>Respondieron cada pregunta en mi idioma, sin apuro y sin promesas falsas.</blockquote><footer><span class="review-avatar">JS</span><div><strong>Julia S.</strong><small>Google review</small></div></footer></article>
+      <article class="review-card reveal"><div class="review-card__stars">★★★★★</div><blockquote>The RFE arrived and they had the response organized in eleven days. Nine days early.</blockquote><footer><span class="review-avatar">RT</span><div><strong>Rafael T.</strong><small>Google review</small></div></footer></article>
     </div>
-    <a class="button reviews-link reveal" href="https://share.google/Z7dcQOVsLTRXStBta" target="_blank" rel="noreferrer">Read all Google reviews</a>
   </section>
 
   <section class="section journeys-section">
-    <div class="section-heading section-heading--split">
-      <div><span class="section__eyebrow reveal">Real journeys</span><h2 class="display-title reveal">Every case has a story behind it.</h2></div>
-      <p class="reveal">Certain stories are anonymized to protect the identity and personal circumstances of our clients.</p>
+    <div class="journeys-heading">
+      <div>
+        <span class="journeys-kicker reveal"><b>05</b> Success stories</span>
+        <h2 class="reveal">Anonymized<br>cases, start<br>to decision.</h2>
+      </div>
+      <p class="reveal">Each story records what the file looked like when it arrived, what we prepared, and what USCIS decided. Case results vary based on individual circumstances and USCIS decisions.</p>
     </div>
     <div class="journey-grid">
-      <article class="journey-card journey-card--green reveal"><small>Adjustment of Status</small><h3>From document collection to Green Card approval.</h3><ul><li>Document organization</li><li>Form preparation</li><li>Supporting evidence</li><li>Final package review</li></ul><div><span>Outcome</span><strong>Approved</strong></div></article>
-      <article class="journey-card journey-card--image reveal"><small>Naturalization</small><h3>One more step completed. One new U.S. citizen.</h3><p>A preparation journey organized from document checklist through submission.</p><a href="#contact">Start your journey <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></article>
+      <article class="journey-card journey-card--green reveal">
+        <small>Adjustment of Status</small>
+        <h3>Approved after a notice asked for the documents nobody had gathered</h3>
+        <p>A married couple came to us three weeks before an RFE deadline, with a filing prepared elsewhere and no copy of what had been sent.</p>
+        <ul><li>Notice broken into items</li><li>Record rebuilt</li><li>Two reviews and a client read</li><li>Filed with nine days to spare</li></ul>
+        <div class="journey-outcome"><span>Outcome</span><strong>Approved</strong><a href="#contact">Read the case</a></div>
+      </article>
+      <article class="journey-card journey-card--blue reveal">
+        <small>Naturalization</small>
+        <h3>A travel history that looked disqualifying, documented properly</h3>
+        <p>Frequent trips home for a family illness raised a continuous residence question. The record answered it.</p>
+        <ul><li>Eligibility checked first</li><li>Absences explained</li><li>Interview preparation</li><li>One interview</li></ul>
+        <div class="journey-outcome"><span>Outcome</span><strong>Naturalized</strong><a href="#contact">Read the case</a></div>
+      </article>
+      <article class="journey-card journey-card--green reveal">
+        <small>VAWA</small>
+        <h3>A self-petition prepared without a single letter arriving at home</h3>
+        <p>The filing had to be invisible at a shared address. Every communication was routed away from it.</p>
+        <ul><li>Safe channels first</li><li>Declaration built in stages</li><li>Evidence without police records</li><li>Filed confidentially</li></ul>
+        <div class="journey-outcome"><span>Outcome</span><strong>Approved</strong><a href="#contact">Read the case</a></div>
+      </article>
     </div>
-    <div class="metrics reveal"><div><strong>2021</strong><span>Serving clients since</span></div><div><strong>50</strong><span>States served</span></div><div><strong>03</strong><span>Languages supported</span></div><div><strong>100%</strong><span>Digital process</span></div></div>
-    <p class="legal-note">Case results vary based on individual circumstances and USCIS decisions. Past outcomes do not guarantee future results.</p>
+    <div class="metrics journey-metrics reveal"><div><strong>46</strong><span>Documents indexed in the largest response</span></div><div><strong>09</strong><span>Days of margin on the tightest deadline</span></div><div><strong>05</strong><span>Filing categories in the published stories</span></div><div><strong>00</strong><span>Letters sent to a client home without consent</span></div></div>
   </section>
 
   <section class="section team-section" id="team">
@@ -398,7 +423,7 @@ mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click',
 changeSlide(0, true)
 
 if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  gsap.utils.toArray('.reveal').forEach((element) => {
+  gsap.utils.toArray('.reveal:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)').forEach((element) => {
     gsap.from(element, {
       y: 34,
       opacity: 0,
@@ -412,14 +437,6 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     })
   })
 
-  gsap.utils.toArray('.display-title').forEach((title) => {
-    gsap.from(title, {
-      letterSpacing: '.035em',
-      duration: 1.15,
-      ease: 'power3.out',
-      scrollTrigger: { trigger: title, start: 'top 86%', once: true }
-    })
-  })
 }
 
 document.querySelectorAll('.faq-item').forEach((item) => {
