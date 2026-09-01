@@ -14,7 +14,7 @@ if (contactSection && !document.querySelector('#consultation')) {
     ['08', 'Other Services', 'EAD · travel · FOIA']
   ]
   const times = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM']
-  const stepLabels = ['Service', 'Date and time', 'Contact information', 'Case details', 'Confirmation']
+  const stepLabels = ['Date and time', 'Service', 'Contact information', 'Case details', 'Confirmation']
   const state = { step: 1, service: '', date: null, time: '', monthOffset: 0 }
 
   const section = document.createElement('section')
@@ -134,15 +134,15 @@ if (contactSection && !document.querySelector('#consultation')) {
 
   function updateNote(message = '') {
     if (message) { note.textContent = message; return }
-    if (state.step === 1) note.textContent = state.service ? `${state.service} selected` : 'Choose one to continue'
-    if (state.step === 2) note.textContent = state.date && state.time ? `${formatDate(state.date)}, ${state.time} ET` : 'Pick a weekday and a time'
+    if (state.step === 1) note.textContent = state.date && state.time ? `${formatDate(state.date)}, ${state.time} ET` : 'Pick a weekday and a time'
+    if (state.step === 2) note.textContent = state.service ? `${state.service} selected` : 'Choose one to continue'
     if (state.step === 3) note.textContent = 'We reply within one business day'
     if (state.step === 4) note.textContent = 'Confidential. Not legal advice.'
   }
 
   function render() {
     renderProgress()
-    stage.innerHTML = state.step === 1 ? renderServices() : state.step === 2 ? renderCalendar() : state.step === 3 ? renderContact() : state.step === 4 ? renderDetails() : renderConfirmation()
+    stage.innerHTML = state.step === 1 ? renderCalendar() : state.step === 2 ? renderServices() : state.step === 3 ? renderContact() : state.step === 4 ? renderDetails() : renderConfirmation()
     next.hidden = state.step === 5
     back.hidden = state.step === 1 || state.step === 5
     next.querySelector('span').textContent = state.step === 4 ? 'Request the consultation' : 'Continue'
@@ -151,8 +151,8 @@ if (contactSection && !document.querySelector('#consultation')) {
   }
 
   function validateStep() {
-    if (state.step === 1 && !state.service) { updateNote('Please choose a service to continue.'); return false }
-    if (state.step === 2 && (!state.date || !state.time)) { updateNote('Please choose both a weekday and a time.'); return false }
+    if (state.step === 1 && (!state.date || !state.time)) { updateNote('Please choose both a weekday and a time.'); return false }
+    if (state.step === 2 && !state.service) { updateNote('Please choose a service to continue.'); return false }
     if (state.step === 3) {
       const invalid = [...stage.querySelectorAll('input,select')].find((field) => !field.checkValidity())
       if (invalid) { invalid.reportValidity(); invalid.focus(); return false }
