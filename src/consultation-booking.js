@@ -15,7 +15,7 @@ if (contactSection && !document.querySelector('#consultation')) {
   ]
   const times = ['9:00 AM', '10:00 AM', '11:00 AM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM']
   const stepLabels = ['Date and time', 'Service', 'Contact information', 'Case details', 'Confirmation']
-  const state = { step: 1, service: '', date: null, time: '', monthOffset: 0 }
+  const state = { step: 1, service: '', date: null, time: '', monthOffset: 0, fields: {} }
 
   const section = document.createElement('section')
   section.className = 'section consultation-section'
@@ -49,8 +49,25 @@ if (contactSection && !document.querySelector('#consultation')) {
   const toKey = (date) => `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`
   const formatDate = (date) => date?.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) || 'To be scheduled'
 
-  function fieldValues() {
-    return Object.fromEntries(new FormData(form).entries())
+  const escapeAttribute = (value = '') => String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('"', '&quot;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+
+  function saveVisibleFields() {
+    stage.querySelectorAll('input[name],select[name],textarea[name]').forEach((field) => {
+      state.fields[field.name] = field.value
+    })
+  }
+
+  function fieldValue(name) {
+    return escapeAttribute(state.fields[name] || '')
+  }
+
+  function selected(name, value, fallback = false) {
+    const current = state.fields[name]
+    return current === value || (!current && fallback) ? ' selected' : ''
   }
 
   function renderProgress() {
@@ -99,12 +116,12 @@ if (contactSection && !document.querySelector('#consultation')) {
     return `
       <div class="booking-heading"><h3>How can we reach you?</h3><p>We use this only to confirm the consultation and send the documents checklist.</p></div>
       <div class="booking-fields">
-        <label>Full name<input name="booking-name" type="text" placeholder="Your legal name" autocomplete="name" required></label>
-        <label>Email<input name="booking-email" type="email" placeholder="you@email.com" autocomplete="email" required></label>
-        <label>Phone or WhatsApp<input name="booking-phone" type="tel" placeholder="+1" autocomplete="tel"></label>
-        <label>Preferred language<select name="booking-language"><option>English</option><option>Português</option><option>Español</option></select></label>
-        <label>State of residence<input name="booking-state" type="text" placeholder="Florida" autocomplete="address-level1"></label>
-        <label>How did you find us<select name="booking-source"><option>Google</option><option>A friend or family member</option><option>Instagram</option><option>WhatsApp</option><option>Another provider</option><option>Other</option></select></label>
+        <label>Full name<input name="booking-name" type="text" value="${fieldValue('booking-name')}" placeholder="Your legal name" autocomplete="name" required></label>
+        <label>Email<input name="booking-email" type="email" value="${fieldValue('booking-email')}" placeholder="you@email.com" autocomplete="email" required></label>
+        <label>Phone or WhatsApp<input name="booking-phone" type="tel" value="${fieldValue('booking-phone')}" placeholder="+1" autocomplete="tel"></label>
+        <label>Preferred language<select name="booking-language"><option${selected('booking-language', 'English', true)}>English</option><option${selected('booking-language', 'Português')}>Português</option><option${selected('booking-language', 'Español')}>Español</option></select></label>
+        <label>State of residence<input name="booking-state" type="text" value="${fieldValue('booking-state')}" placeholder="Florida" autocomplete="address-level1"></label>
+        <label>How did you find us<select name="booking-source"><option${selected('booking-source', 'Google', true)}>Google</option><option${selected('booking-source', 'A friend or family member')}>A friend or family member</option><option${selected('booking-source', 'Instagram')}>Instagram</option><option${selected('booking-source', 'WhatsApp')}>WhatsApp</option><option${selected('booking-source', 'Another provider')}>Another provider</option><option${selected('booking-source', 'Other')}>Other</option></select></label>
       </div>`
   }
 
@@ -112,11 +129,11 @@ if (contactSection && !document.querySelector('#consultation')) {
     return `
       <div class="booking-heading"><h3>Tell us what is going on</h3><p>Write it in your own words. You do not need the form numbers or the legal terms.</p></div>
       <div class="booking-fields">
-        <label>Current immigration status<input name="booking-status" type="text" placeholder="For example: tourist visa, expired, pending case"></label>
-        <label>Has anything been filed before<select name="booking-filed"><option>Nothing has been filed</option><option>Something was filed and is pending</option><option>A case was denied</option><option>I am not sure</option></select></label>
-        <label>Any deadline or USCIS notice<input name="booking-deadline" type="text" placeholder="Date on the notice, if you have one"></label>
-        <label>Documents you already have<select name="booking-docs"><option>Almost everything</option><option>Some documents</option><option>Very little</option><option>I do not know what is needed</option></select></label>
-        <label class="booking-field--wide">Describe the case<textarea name="booking-details" rows="5" placeholder="What happened, what you need, and what you are worried about."></textarea></label>
+        <label>Current immigration status<input name="booking-status" type="text" value="${fieldValue('booking-status')}" placeholder="For example: tourist visa, expired, pending case"></label>
+        <label>Has anything been filed before<select name="booking-filed"><option${selected('booking-filed', 'Nothing has been filed', true)}>Nothing has been filed</option><option${selected('booking-filed', 'Something was filed and is pending')}>Something was filed and is pending</option><option${selected('booking-filed', 'A case was denied')}>A case was denied</option><option${selected('booking-filed', 'I am not sure')}>I am not sure</option></select></label>
+        <label>Any deadline or USCIS notice<input name="booking-deadline" type="text" value="${fieldValue('booking-deadline')}" placeholder="Date on the notice, if you have one"></label>
+        <label>Documents you already have<select name="booking-docs"><option${selected('booking-docs', 'Almost everything', true)}>Almost everything</option><option${selected('booking-docs', 'Some documents')}>Some documents</option><option${selected('booking-docs', 'Very little')}>Very little</option><option${selected('booking-docs', 'I do not know what is needed')}>I do not know what is needed</option></select></label>
+        <label class="booking-field--wide">Describe the case<textarea name="booking-details" rows="5" placeholder="What happened, what you need, and what you are worried about.">${fieldValue('booking-details')}</textarea></label>
       </div>
       <p class="booking-disclaimer">Prisma Provider is not a law firm and does not provide legal advice. Anything you share is kept confidential and used only to prepare your documents.</p>`
   }
@@ -165,22 +182,24 @@ if (contactSection && !document.querySelector('#consultation')) {
     const date = event.target.closest('[data-date]')
     const time = event.target.closest('[data-time]')
     const month = event.target.closest('[data-month]')
+    const restart = event.target.closest('.booking-restart')
+    if (!service && !date && !time && !month && !restart) return
     if (service) state.service = service.dataset.service
     if (date) { const [year, monthValue, day] = date.dataset.date.split('-').map(Number); state.date = new Date(year, monthValue - 1, day) }
     if (time) state.time = time.dataset.time
     if (month) state.monthOffset += month.dataset.month === 'next' ? 1 : -1
-    if (event.target.closest('.booking-restart')) Object.assign(state, { step: 1, service: '', date: null, time: '', monthOffset: 0 })
+    if (restart) Object.assign(state, { step: 1, service: '', date: null, time: '', monthOffset: 0, fields: {} })
     render()
   })
 
   next.addEventListener('click', () => {
     if (!validateStep()) return
-    fieldValues()
+    saveVisibleFields()
     state.step = Math.min(5, state.step + 1)
     render()
     section.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
   })
-  back.addEventListener('click', () => { state.step = Math.max(1, state.step - 1); render() })
+  back.addEventListener('click', () => { saveVisibleFields(); state.step = Math.max(1, state.step - 1); render() })
 
   document.querySelectorAll('a').forEach((link) => {
     if (link.textContent.trim().toLowerCase() === 'book a consultation' || link.textContent.trim().toLowerCase() === 'start with a consultation') link.setAttribute('href', '#consultation')
