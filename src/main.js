@@ -1,6 +1,7 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './styles.css'
+import './process-timeline.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -250,20 +251,21 @@ document.querySelector('#app').innerHTML = `
   </section>
 
   <section class="section process-section" id="process">
-    <div class="section-heading section-heading--split">
+    <div class="section-heading section-heading--split process-section__heading">
       <div><span class="section__eyebrow reveal">How it works</span><h2 class="display-title reveal">From the first conversation to the final package, you will know what comes next.</h2></div>
       <p class="reveal">A clear path, broken into manageable steps.</p>
     </div>
-    <div class="process-line" aria-label="Prisma service process">
-      <article class="process-step reveal"><span>01</span><div><small>Start</small><h3>Tell us about your situation</h3><p>Book a consultation and share what you need help with.</p></div></article>
-      <article class="process-step reveal"><span>02</span><div><small>Understand</small><h3>We understand your case</h3><p>We review your situation and identify an appropriate service.</p></div></article>
-      <article class="process-step reveal"><span>03</span><div><small>Choose</small><h3>Choose your service</h3><p>We explain scope, payment and next steps before you move forward.</p></div></article>
-      <article class="process-step reveal"><span>04</span><div><small>Gather</small><h3>Gather your documents</h3><p>You receive a clear checklist of what needs to be provided.</p></div></article>
-      <article class="process-step reveal"><span>05</span><div><small>Prepare</small><h3>We prepare your package</h3><p>Our team organizes forms and supporting documentation.</p></div></article>
-      <article class="process-step reveal"><span>06</span><div><small>Review</small><h3>Structured review</h3><p>You confirm the information before the package is finalized.</p></div></article>
-      <article class="process-step reveal"><span>07</span><div><small>File</small><h3>Ready to file</h3><p>Final documentation is prepared for the appropriate filing process.</p></div></article>
-      <article class="process-step reveal"><span>08</span><div><small>Stay connected</small><h3>Now you wait. We stay connected.</h3><p>We help you understand updates related to the service provided.</p></div></article>
-      <article class="process-step process-step--last reveal"><span>09</span><div><small>Next chapter</small><h3>Careful preparation moves the journey forward.</h3><a href="#contact">Start with a consultation <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div></article>
+    <div class="process-line process-timeline" aria-label="Prisma service process" role="list">
+      <div class="process-timeline__rail" aria-hidden="true"><span></span></div>
+      <article class="process-step process-step--timeline process-step--left" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Start</small><span>Step 01</span></div><h3>Tell us about your situation</h3><p>Book a consultation and share what you need help with.</p></div><div class="process-step__node" aria-hidden="true"><span>01</span></div></article>
+      <article class="process-step process-step--timeline process-step--right" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Understand</small><span>Step 02</span></div><h3>We understand your case</h3><p>We review your situation and identify an appropriate service.</p></div><div class="process-step__node" aria-hidden="true"><span>02</span></div></article>
+      <article class="process-step process-step--timeline process-step--left" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Choose</small><span>Step 03</span></div><h3>Choose your service</h3><p>We explain scope, payment and next steps before you move forward.</p></div><div class="process-step__node" aria-hidden="true"><span>03</span></div></article>
+      <article class="process-step process-step--timeline process-step--right" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Gather</small><span>Step 04</span></div><h3>Gather your documents</h3><p>You receive a clear checklist of what needs to be provided.</p></div><div class="process-step__node" aria-hidden="true"><span>04</span></div></article>
+      <article class="process-step process-step--timeline process-step--left" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Prepare</small><span>Step 05</span></div><h3>We prepare your package</h3><p>Our team organizes forms and supporting documentation.</p></div><div class="process-step__node" aria-hidden="true"><span>05</span></div></article>
+      <article class="process-step process-step--timeline process-step--right" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Review</small><span>Step 06</span></div><h3>Structured review</h3><p>You confirm the information before the package is finalized.</p></div><div class="process-step__node" aria-hidden="true"><span>06</span></div></article>
+      <article class="process-step process-step--timeline process-step--left" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>File</small><span>Step 07</span></div><h3>Ready to file</h3><p>Final documentation is prepared for the appropriate filing process.</p></div><div class="process-step__node" aria-hidden="true"><span>07</span></div></article>
+      <article class="process-step process-step--timeline process-step--right" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Stay connected</small><span>Step 08</span></div><h3>Now you wait. We stay connected.</h3><p>We help you understand updates related to the service provided.</p></div><div class="process-step__node" aria-hidden="true"><span>08</span></div></article>
+      <article class="process-step process-step--timeline process-step--left process-step--last" data-process-step role="listitem"><div class="process-step__card"><div class="process-step__meta"><small>Next chapter</small><span>Step 09</span></div><h3>Careful preparation moves the journey forward.</h3><a href="#contact">Start with a consultation <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a></div><div class="process-step__node" aria-hidden="true"><span>09</span></div></article>
     </div>
   </section>
 
