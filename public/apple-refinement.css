@@ -1,0 +1,512 @@
+/* Prisma Provider — Apple-inspired refinement layer
+   Principles: clarity, restraint, unified surfaces, selective glass,
+   semantic tokens, responsive feedback, and accessible controls. */
+
+:root {
+  --prisma-label: rgba(248, 250, 251, 0.98);
+  --prisma-label-secondary: rgba(235, 239, 242, 0.72);
+  --prisma-label-tertiary: rgba(235, 239, 242, 0.48);
+  --prisma-surface-1: #090b0d;
+  --prisma-surface-2: #0d1013;
+  --prisma-surface-3: #111519;
+  --prisma-hairline: rgba(255, 255, 255, 0.13);
+  --prisma-hairline-strong: rgba(255, 255, 255, 0.2);
+  --prisma-glass: rgba(12, 15, 18, 0.62);
+  --prisma-glass-strong: rgba(12, 15, 18, 0.76);
+  --prisma-focus: rgba(193, 255, 114, 0.34);
+  --prisma-shadow-soft: 0 18px 55px rgba(0, 0, 0, 0.28);
+  --prisma-shadow-float: 0 24px 70px rgba(0, 0, 0, 0.38);
+  --prisma-radius-xs: 8px;
+  --prisma-radius-sm: 12px;
+  --prisma-radius-md: 16px;
+  --prisma-radius-lg: 20px;
+  --prisma-radius-xl: 28px;
+  --prisma-radius-2xl: 36px;
+  --prisma-radius-pill: 999px;
+  --prisma-touch: 44px;
+  --prisma-spring-snappy: cubic-bezier(0.36, 1.4, 0.64, 1);
+  --prisma-spring-default: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --prisma-spring-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-padding-top: 24px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", Inter, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+}
+
+body::after {
+  opacity: 0.018;
+}
+
+h1,
+.display-title,
+.final-cta h2,
+.site-footer h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Inter, system-ui, sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.045em;
+}
+
+h1 {
+  line-height: 0.92;
+}
+
+.display-title {
+  line-height: 1;
+}
+
+.summary,
+.section-heading p,
+.about-copy,
+.service-card p,
+.benefit-card p,
+.contact-copy p,
+.social-copy p,
+.faq-item p {
+  color: var(--prisma-label-secondary);
+}
+
+.eyebrow,
+.section__eyebrow,
+.service-card small,
+.journey-card small,
+.process-step small,
+.team-card small,
+.trust,
+.slide-label {
+  color: var(--prisma-label-tertiary);
+  letter-spacing: 0.12em;
+}
+
+/* Selective glass: use it where content truly overlaps the hero. */
+.hero {
+  border-radius: var(--prisma-radius-2xl);
+  border-color: var(--prisma-hairline-strong);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 36px 110px rgba(0, 0, 0, 0.48);
+}
+
+.hero::before {
+  opacity: 0.18;
+}
+
+.nav {
+  width: calc(100% - 8px);
+  min-height: 66px;
+  margin: 16px 4px 0;
+  padding: 7px 8px 7px 16px;
+  border: 1px solid var(--prisma-hairline-strong);
+  border-radius: var(--prisma-radius-pill);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.015) 48%, transparent 68%),
+    var(--prisma-glass);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: inset 0 1px rgba(255,255,255,.16), 0 14px 42px rgba(0,0,0,.3);
+}
+
+.nav__links a,
+.inline-link,
+.site-footer a,
+.contact-detail a,
+.social-node {
+  transition: color 240ms var(--prisma-spring-gentle), opacity 240ms var(--prisma-spring-gentle);
+}
+
+.nav__links a {
+  min-height: var(--prisma-touch);
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2px;
+}
+
+.nav__links a::after {
+  bottom: 7px;
+  transition: transform 320ms var(--prisma-spring-snappy);
+}
+
+.nav__links a.is-current {
+  color: var(--prisma-label);
+}
+
+.nav__links a.is-current::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.glass-shell,
+.glass-panel,
+.rating {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+.rating {
+  border-radius: var(--prisma-radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.02) 45%, transparent 70%),
+    var(--prisma-glass-strong);
+  border-color: var(--prisma-hairline-strong);
+  box-shadow: inset 0 1px rgba(255,255,255,.16), var(--prisma-shadow-soft);
+}
+
+/* Controls: consistent geometry, immediate press feedback, visible focus. */
+.button,
+.menu,
+.progress button,
+.service-card > a,
+.faq-item summary,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button {
+  min-height: 50px;
+  border-radius: var(--prisma-radius-pill);
+  transition:
+    transform 360ms var(--prisma-spring-snappy),
+    box-shadow 260ms var(--prisma-spring-gentle),
+    border-color 240ms var(--prisma-spring-gentle),
+    background-color 240ms var(--prisma-spring-gentle),
+    filter 120ms linear;
+}
+
+.button:hover {
+  transform: translateY(-2px) scale(1.012);
+}
+
+.button:active,
+.button.is-pressing,
+.menu:active,
+.menu.is-pressing,
+.progress button:active,
+.progress button.is-pressing,
+.service-card > a:active,
+.service-card > a.is-pressing {
+  transform: scale(0.955);
+  filter: brightness(0.91);
+  transition-duration: 110ms;
+}
+
+.button--light,
+.button--outline {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.015) 62%),
+    rgba(255,255,255,.06);
+  border-color: var(--prisma-hairline-strong);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: inset 0 1px rgba(255,255,255,.13), 0 10px 26px rgba(0,0,0,.22);
+}
+
+.button--primary {
+  box-shadow: inset 0 1px rgba(255,255,255,.68), 0 12px 30px rgba(193,255,114,.15);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--prisma-focus), 0 0 0 1px var(--lime);
+}
+
+.progress {
+  gap: 2px;
+}
+
+.progress button {
+  width: var(--prisma-touch);
+  height: var(--prisma-touch);
+  padding: 16px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 320ms var(--prisma-spring-snappy), background-color 200ms ease;
+}
+
+.progress button:hover {
+  background: rgba(255,255,255,.06);
+  transform: scale(1.06);
+}
+
+.progress span {
+  width: 8px;
+  height: 8px;
+  transition: transform 320ms var(--prisma-spring-snappy), background-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Restraint: solid reading surfaces; glass is reserved for overlays. */
+.service-card,
+.benefit-card,
+.review-card,
+.journey-card,
+.process-step__card {
+  background: var(--prisma-surface-2);
+  border-color: var(--prisma-hairline);
+  box-shadow: inset 0 1px rgba(255,255,255,.045), var(--prisma-shadow-soft);
+  transition:
+    transform 360ms var(--prisma-spring-default),
+    border-color 240ms var(--prisma-spring-gentle),
+    box-shadow 320ms var(--prisma-spring-gentle);
+}
+
+.service-card:hover,
+.review-card:hover,
+.benefit-card:hover,
+.journey-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--prisma-hairline-strong);
+  box-shadow: inset 0 1px rgba(255,255,255,.07), 0 24px 62px rgba(0,0,0,.34);
+}
+
+.service-card--featured,
+.benefit-card--image {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(193,255,114,.085), transparent 34%),
+    var(--prisma-surface-2);
+}
+
+.service-card > a {
+  width: var(--prisma-touch);
+  height: var(--prisma-touch);
+  transition: transform 360ms var(--prisma-spring-snappy), filter 120ms linear;
+}
+
+.service-card:hover > a {
+  transform: rotate(20deg) scale(1.04);
+}
+
+.trust-strip strong,
+.service-card__index,
+.benefit-card > span,
+.reviews-kicker b,
+.process-step__meta span,
+.process-step__node,
+.footer-bottom span {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Unified FAQ surface with hairline separation instead of floating fragments. */
+.faq-list {
+  border: 1px solid var(--prisma-hairline);
+  border-radius: var(--prisma-radius-xl);
+  overflow: hidden;
+  background: var(--prisma-surface-2);
+  box-shadow: var(--prisma-shadow-soft);
+}
+
+.faq-item,
+.faq-item[open] {
+  margin: 0 !important;
+  border: 0 !important;
+  border-top: 1px solid var(--prisma-hairline) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.faq-item:first-child {
+  border-top: 0 !important;
+}
+
+.faq-item summary {
+  min-height: 64px;
+  padding-block: 18px;
+  cursor: pointer;
+  transition: background-color 200ms ease, color 240ms var(--prisma-spring-gentle);
+}
+
+.faq-item summary:hover {
+  background: rgba(255,255,255,.035);
+}
+
+.faq-item[open] summary {
+  color: var(--prisma-label);
+}
+
+/* Form controls: familiar, readable, forgiving. */
+.contact-panel {
+  border-radius: var(--prisma-radius-xl);
+  background: var(--prisma-surface-2);
+  border-color: var(--prisma-hairline);
+  box-shadow: var(--prisma-shadow-float);
+}
+
+.contact-form label {
+  color: var(--prisma-label-secondary);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid var(--prisma-hairline-strong);
+  border-radius: var(--prisma-radius-sm);
+  color: var(--prisma-label);
+  background: var(--prisma-surface-3);
+  box-shadow: inset 0 1px rgba(255,255,255,.035);
+  transition: border-color 180ms ease, box-shadow 220ms var(--prisma-spring-gentle), background-color 180ms ease;
+}
+
+.contact-form textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+  border-color: rgba(255,255,255,.3);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--lime);
+  background: #13181b;
+  box-shadow: 0 0 0 4px var(--prisma-focus);
+}
+
+.contact-form ::placeholder {
+  color: rgba(235,239,242,.38);
+}
+
+/* Wayfinding and content hierarchy. */
+.section {
+  border-bottom-color: rgba(255,255,255,.1);
+}
+
+.trust-strip__item,
+.section-cta,
+.footer-bottom {
+  border-color: rgba(255,255,255,.1);
+}
+
+.inline-link:hover,
+.contact-detail a:hover,
+.site-footer a:hover {
+  color: var(--lime);
+}
+
+/* Mobile: preserve large touch targets and make the menu behave like a floating sheet. */
+@media (max-width: 900px) {
+  .hero {
+    border-radius: var(--prisma-radius-xl);
+  }
+
+  .nav {
+    width: 100%;
+    margin: 12px 0 0;
+    padding: 7px 8px 7px 12px;
+    min-height: 60px;
+  }
+
+  .menu {
+    min-width: var(--prisma-touch);
+    min-height: var(--prisma-touch);
+    border-radius: 50%;
+  }
+
+  .mobile-nav {
+    border: 1px solid var(--prisma-hairline-strong);
+    border-radius: var(--prisma-radius-xl);
+    background:
+      linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.015) 60%),
+      rgba(10,13,16,.9);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow: inset 0 1px rgba(255,255,255,.14), var(--prisma-shadow-float);
+  }
+
+  .mobile-nav a {
+    min-height: var(--prisma-touch);
+    display: flex;
+    align-items: center;
+  }
+
+  .progress button {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 16px;
+  }
+
+  .hero {
+    width: calc(100% - 20px);
+    margin-top: 10px;
+  }
+
+  h1 {
+    letter-spacing: -0.038em;
+    line-height: .96;
+  }
+
+  .display-title,
+  .final-cta h2,
+  .site-footer h2 {
+    letter-spacing: -0.034em;
+    line-height: 1.02;
+  }
+
+  .button {
+    min-height: 48px;
+  }
+
+  .faq-list,
+  .contact-panel {
+    border-radius: var(--prisma-radius-lg);
+  }
+
+  .faq-item summary {
+    min-height: 58px;
+  }
+}
+
+/* Respect the user's motion preference and remove ornamental motion. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .button:hover,
+  .service-card:hover,
+  .review-card:hover,
+  .benefit-card:hover,
+  .journey-card:hover,
+  .progress button:hover {
+    transform: none !important;
+  }
+}
+
+/* Reduce transparency where the browser exposes the preference. */
+@media (prefers-reduced-transparency: reduce) {
+  .nav,
+  .glass-shell,
+  .glass-panel,
+  .rating,
+  .mobile-nav,
+  .button--light,
+  .button--outline {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #101316 !important;
+  }
+}
