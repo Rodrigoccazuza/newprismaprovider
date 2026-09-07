@@ -7,6 +7,24 @@ function initProcessTimeline() {
 
   timeline.dataset.timelineReady = 'true'
 
+  // Translated copy and responsive cards change the distance between nodes.
+  const rail = timeline.querySelector('.process-timeline__rail')
+  const nodes = steps.map(step => step.querySelector('.process-step__node'))
+  const measureRail = () => {
+    if (!rail || nodes.some(node => !node)) return
+    const origin = timeline.getBoundingClientRect()
+    const first = nodes[0].getBoundingClientRect()
+    const last = nodes.at(-1).getBoundingClientRect()
+    rail.style.top = `${first.top + first.height / 2 - origin.top}px`
+    rail.style.height = `${last.top + last.height / 2 - first.top - first.height / 2}px`
+    rail.style.bottom = 'auto'
+  }
+  const resizeObserver = new ResizeObserver(measureRail)
+  steps.forEach(step => resizeObserver.observe(step))
+  window.addEventListener('resize', measureRail, { passive: true })
+  document.fonts.ready.then(measureRail)
+  measureRail()
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     steps.forEach((step) => step.classList.add('is-visible'))
     timeline.style.setProperty('--process-progress', '100%')

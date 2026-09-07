@@ -366,6 +366,8 @@ function changeSlide(index, immediate = false) {
   if (locked || index === active && !immediate) return
   locked = true
   window.clearTimeout(timer)
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  immediate = immediate || reducedMotion
   const nextIndex = (index + slides.length) % slides.length
   const slide = slides[nextIndex]
   els.incoming.style.backgroundImage = `url('${slide.image}')`
@@ -376,7 +378,7 @@ function changeSlide(index, immediate = false) {
     els.bg.style.backgroundImage = `url('${slide.image}')`
     setImageFocus(els.bg, slide)
     setContent(nextIndex)
-    gsap.from(['.nav', '.copy > *', '.rating', '.hero__footer'], { y: 24, opacity: 0, duration: 1.05, stagger: 0.07, ease: 'power3.out' })
+    if (!reducedMotion) gsap.from(['.nav', '.copy > *', '.rating', '.hero__footer'], { y: 24, opacity: 0, duration: 1.05, stagger: 0.07, ease: 'power3.out' })
     locked = false
   } else {
     const tl = gsap.timeline({
@@ -393,10 +395,11 @@ function changeSlide(index, immediate = false) {
       .fromTo(copyTargets, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.72, stagger: 0.045, ease: 'power3.out' }, 0.5)
   }
   active = nextIndex
-  timer = window.setTimeout(() => changeSlide(active + 1), 7000)
+  if (!reducedMotion) timer = window.setTimeout(() => changeSlide(active + 1), 7000)
 }
 
 document.addEventListener('keydown', (event) => {
+  if (event.target.closest('input,textarea,select,[contenteditable=true]')) return
   if (event.key === 'ArrowRight') changeSlide(active + 1)
   if (event.key === 'ArrowLeft') changeSlide(active - 1)
   if (event.key === 'Escape') closeMenu()
