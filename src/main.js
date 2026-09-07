@@ -142,7 +142,7 @@ document.querySelector('#app').innerHTML = `
       </div>
     </div>
     <div class="about-statement reveal">
-      <div class="about-statement__image"><img src="${asset('images/editorial/prism.jpg')}" alt="Light passing through a glass prism" /></div>
+      <div class="about-statement__image"><img src="${asset('images/editorial/prisma-founders-paperwork.jpg')}" alt="Prisma founders reviewing information together" /></div>
       <p><span>The paperwork matters.</span> So does the person behind it.</p>
     </div>
   </section>

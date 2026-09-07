@@ -9,8 +9,8 @@ function applyFinalTweaks() {
   // About / Meet Prisma feature card: use the supplied editorial photo as the background image.
   const aboutImage = document.querySelector('.about-statement__image img')
   if (aboutImage) {
-    aboutImage.src = asset('images/editorial/F78C5C3B-92E6-44C3-997E-7B4F8D529E1B.png')
-    aboutImage.alt = 'Woman holding a U.S. flag and immigration document'
+    aboutImage.src = asset('images/editorial/prisma-founders-paperwork.jpg')
+    aboutImage.alt = 'Prisma founders reviewing information together'
   }
 
   // Your Next Step: replace the prism image with the requested editorial photo.

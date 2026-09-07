@@ -15,7 +15,7 @@ Linked component: https://app.notion.com/p/3d371158b384800b9720d8a8848364c3
 | Rail stops at last numbered circle | ResizeObserver measures actual first/last node centers, including text reflow after language changes. |
 | Languages fit layouts | Fluid headings, smaller localized heading scale, wrapping labels, flexible cards, tablet navigation; translations for new founder panel labels. React controls manage their own translations so legacy DOM translation cannot corrupt React-owned nodes. |
 | Citizenship section inset 10% each side | Only that section is 80% of the shared shell; grid and portrait adapt within its narrower width. |
-| Paperwork photo | Exact supplied founders photo from Notion; responsive cover with the screenshot's black border excluded by the image viewport. |
+| Paperwork photo | Exact uploaded IMG_7069.jpeg founders photo; responsive cover without screenshot borders. Initial markup and subsequent image setup both use the same asset. |
 | Who we are reference | Centered heading; alternating portrait and three information panels, stacked on mobile; original founders and biographies retained. |
 | Testimonials reference and React prompt | Typed reusable React/Motion column component in src/components/ui, Tailwind utilities without global preflight, shadcn configuration and @ alias. Rounded light cards, quote mark, source badge and author footer; scrolling desktop columns with pause control. All reviews remain visible in static mobile/tablet layouts. Existing review copy and initials retained instead of unrelated ERP demo endorsements or invented customer photos. |
 | UI/UX audit | Code audit and corrections below; visual audit blocked by browser policy. |

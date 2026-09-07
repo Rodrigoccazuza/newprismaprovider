@@ -45,7 +45,7 @@ body .footer-contact-showcase__inner { min-width:0; }
 body .footer-contact-showcase__actions { flex-wrap:wrap; }
 body .footer-contact-showcase__email { overflow-wrap:anywhere; }
 body .about-statement__image { overflow:hidden; }
-body .about-statement__image img { object-fit:cover!important; width:100%!important;height:123%!important; max-width:none;position:absolute;top:-11.5%;object-position:center 45%!important;filter:none!important;transform:none!important; }
+body .about-statement__image img { object-fit:cover!important; width:100%!important;height:100%!important; max-width:none;position:absolute;top:0;object-position:center 45%!important;filter:none!important;transform:none!important; }
 body .about-statement__image:after { background:linear-gradient(0deg,#030405f5, #03040590 28%,transparent 65%)!important; }
 body .about-statement { min-height:620px; }
 body .about-statement p { font-size:clamp(2rem,4vw,3.6rem)!important;line-height:1.08!important; }
