@@ -1,0 +1,112 @@
+/* Prisma Provider FAQ — restore the pre-Apple silver active treatment only. */
+
+.faq-section .faq-list {
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-section .faq-item,
+.faq-section .faq-item[open] {
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: none !important;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.faq-section .faq-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.faq-section .faq-item summary {
+  min-height: 100px;
+  padding: 0 20px;
+  cursor: pointer;
+  background: transparent;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.faq-section .faq-item summary:hover {
+  background: transparent;
+}
+
+.faq-section .faq-item summary span {
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Closed/default state */
+.faq-section .faq-item:not([open]) {
+  color: #d9dde1;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)) !important;
+  border-color: rgba(255, 255, 255, 0.13) !important;
+}
+
+.faq-section .faq-item:not([open]) summary span {
+  color: #aeb4bb;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* Previous silver hover state */
+.faq-section .faq-item:not([open]):hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+  background: linear-gradient(145deg, rgba(235, 239, 243, 0.13), rgba(146, 154, 163, 0.08)) !important;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.18), 0 16px 34px rgba(0, 0, 0, 0.24) !important;
+  transform: translateX(4px);
+}
+
+.faq-section .faq-item:not([open]):hover summary span {
+  color: #111;
+  background: linear-gradient(145deg, #f2f4f6, #aeb5bd);
+  border-color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Previous active/open silver state */
+.faq-section .faq-item[open] {
+  color: #111417;
+  border-color: rgba(255, 255, 255, 0.78) !important;
+  background: linear-gradient(145deg, rgba(246, 248, 250, 0.94), rgba(173, 180, 188, 0.86) 48%, rgba(224, 228, 232, 0.92)) !important;
+  backdrop-filter: blur(24px) saturate(0.85);
+  -webkit-backdrop-filter: blur(24px) saturate(0.85);
+  box-shadow: inset 0 1px #fff, inset 0 -1px rgba(96, 102, 109, 0.3), 0 22px 46px rgba(0, 0, 0, 0.32) !important;
+}
+
+.faq-section .faq-item[open] summary {
+  color: #111417;
+}
+
+.faq-section .faq-item[open] summary span {
+  color: #0a0c0e;
+  background: rgba(255, 255, 255, 0.58);
+  border-color: rgba(17, 20, 23, 0.2);
+  transform: rotate(180deg);
+}
+
+.faq-section .faq-item[open] p {
+  color: #3d4248 !important;
+  padding: 0 20px 4px;
+  margin: -8px 50px 26px 0;
+}
+
+.faq-section .faq-item[open]:hover {
+  background: linear-gradient(145deg, #fbfcfd, #c7cdd3 48%, #e9edf0) !important;
+  border-color: #fff !important;
+  box-shadow: inset 0 1px #fff, 0 26px 56px rgba(0, 0, 0, 0.38) !important;
+}
