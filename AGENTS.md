@@ -1,8 +1,12 @@
 # Prisma Provider — Design Agent Guidance
 
-For any frontend/UI task in this repository, use the combined project skill at `.agents/skills/prisma-design/SKILL.md` before editing UI code.
+For any frontend/UI task in this repository, load the project skill at `.agents/skills/prisma-design/SKILL.md` first, then use the three supporting project-local skills as relevant:
 
-The project intentionally combines three design systems:
+- `.agents/skills/impeccable/SKILL.md`
+- `.agents/skills/emil-design-eng/SKILL.md`
+- `.agents/skills/gpt-taste/SKILL.md`
+
+These are adapted project-local applications of:
 
 1. Emil Kowalski Design Engineering — interaction polish, purposeful motion, easing, responsiveness, reduced-motion handling, and invisible details.
 2. Taste Skill (GPT/Codex-oriented) — stronger composition, editorial hierarchy, anti-generic layouts, cinematic spacing, deliberate GSAP use, and anti-slop constraints.
@@ -31,5 +35,19 @@ Do not redesign a stable area merely because a skill suggests a more expressive 
 - Reuse the existing Prisma design language before introducing new tokens or component styles.
 - Keep animations interruptible and responsive; button press states should provide subtle immediate feedback.
 - Do not add motion if it obscures content, delays navigation, or harms usability.
+- For booking/forms/task UI, favor clarity and speed over spectacle.
+- For marketing/storytelling sections, stronger editorial composition and motion are allowed when they support comprehension and conversion.
 
-For exact upstream installation/update commands, run `npm run skills:install` from the project root.
+## Review standard
+
+For UI audits and meaningful refinements, prioritize:
+
+1. functionality and accessibility
+2. responsive/layout correctness
+3. hierarchy and comprehension
+4. interaction/motion quality
+5. typography, spacing, polish, and delight
+
+When showing UI review changes, use a markdown table with `Before | After | Why`.
+
+For upstream installation/update commands, run `npm run skills:install` from the project root. The checked-in project-local skills remain the repository-specific source of truth for how those upstream systems are applied to Prisma.
