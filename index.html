@@ -4,38 +4,547 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#030405" />
-    <meta name="description" content="Prisma Provider makes immigration support clearer, organized, and human." />
+    <meta name="description" content="Prisma Provider makes immigration document preparation clearer, organized and human — fully digital, nationwide, in English, Portuguese and Spanish." />
+    <meta property="og:title" content="Prisma Provider — Immigration Support, Made Clearer" />
+    <meta property="og:description" content="Clear, organized immigration document preparation. Fully digital, nationwide, multilingual." />
+    <meta property="og:image" content="%BASE_URL%img/hero-approval-1200.webp" />
     <link rel="icon" type="image/png" sizes="32x32" href="%BASE_URL%brand/original/favicon-32.png" />
     <link rel="apple-touch-icon" href="%BASE_URL%brand/original/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css" />
-    <link id="apple-refinement-styles" rel="stylesheet" href="%BASE_URL%apple-refinement.css" />
-    <link id="faq-previous-styles" rel="stylesheet" href="%BASE_URL%faq-previous.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="image" href="%BASE_URL%img/hero-approval-2400.webp" imagesrcset="%BASE_URL%img/hero-approval-1200.webp 1200w, %BASE_URL%img/hero-approval-2400.webp 2400w" imagesizes="100vw" fetchpriority="high" />
     <title>Prisma Provider — Immigration Support, Made Clearer</title>
+    <script>
+      /* Hide animatable content only when motion is allowed. main.js removes the class if motion setup fails. */
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion')
+    </script>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Icon sprite -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="M19 12H5m5-5-5 5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-arrow-d" viewBox="0 0 24 24"><path d="M12 5v14m-5-5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.3 3 6.5 6.5 6.5l1-1.6-2.2-1-1 1a4.6 4.6 0 0 1-2.7-2.7l1-1-1-2.2Z" fill="currentColor"/></symbol>
+        <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+        <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4m8-4v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 12h17M12 3.5c2.4 2.6 3.5 5.4 3.5 8.5s-1.1 5.9-3.5 8.5c-2.4-2.6-3.5-5.4-3.5-8.5s1.1-5.9 3.5-8.5Z" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+        <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5Z" fill="currentColor"/></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" fill="currentColor"/></symbol>
+      </defs>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ================= NAV ================= -->
+    <header class="nav" id="nav">
+      <div class="nav__bar">
+        <a class="nav__brand" href="#top" aria-label="Prisma Provider — home">
+          <img src="%BASE_URL%img/logo-color.webp" width="1110" height="151" alt="" />
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#process">How it works</a>
+          <a href="#stories">Success stories</a>
+          <a href="#team">About</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav__actions">
+          <div class="lang" data-lang-menu>
+            <button class="lang__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Language: English">
+              <svg class="icon" aria-hidden="true"><use href="#i-globe"/></svg><span data-lang-current data-i18n-skip>EN</span>
+            </button>
+            <ul class="lang__menu" role="menu" hidden>
+              <li role="none"><button role="menuitemradio" type="button" data-lang="en" aria-checked="true" lang="en">English</button></li>
+              <li role="none"><button role="menuitemradio" type="button" data-lang="pt" aria-checked="false" lang="pt-BR">Português</button></li>
+              <li role="none"><button role="menuitemradio" type="button" data-lang="es" aria-checked="false" lang="es">Español</button></li>
+            </ul>
+          </div>
+          <a class="btn btn--dark btn--sm nav__cta" href="#book">Book a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu"><span></span><span></span></button>
+        </div>
+      </div>
+      <div class="nav__sheet" id="mobile-nav" inert>
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#stories">Success stories</a>
+        <a href="#team">About</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn btn--lime btn--block" href="#book">Book a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="top" aria-roledescription="carousel" aria-label="Prisma Provider introduction">
+        <div class="hero__frame">
+          <div class="hero__media" aria-hidden="true">
+            <img class="hero__img is-active" data-slide-img="0" src="%BASE_URL%img/hero-approval-2400.webp" srcset="%BASE_URL%img/hero-approval-1200.webp 1200w, %BASE_URL%img/hero-approval-2400.webp 2400w" sizes="100vw" width="2400" height="1351" alt="" fetchpriority="high" style="--pos: 58% 38%; --pos-m: 60% 30%" />
+            <img class="hero__img" data-slide-img="1" data-src="%BASE_URL%img/hero-adjustment-2400.webp" data-srcset="%BASE_URL%img/hero-adjustment-1200.webp 1200w, %BASE_URL%img/hero-adjustment-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="" style="--pos: 55% 40%; --pos-m: 55% 30%" />
+            <img class="hero__img" data-slide-img="2" data-src="%BASE_URL%img/hero-naturalization-2400.webp" data-srcset="%BASE_URL%img/hero-naturalization-1200.webp 1200w, %BASE_URL%img/hero-naturalization-2400.webp 2400w" sizes="100vw" width="2400" height="1352" alt="" style="--pos: 55% 45%; --pos-m: 50% 30%" />
+            <img class="hero__img" data-slide-img="3" data-src="%BASE_URL%img/hero-removal-2400.webp" data-srcset="%BASE_URL%img/hero-removal-1200.webp 1200w, %BASE_URL%img/hero-removal-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="" style="--pos: 60% 36%; --pos-m: 55% 30%" />
+            <img class="hero__img" data-slide-img="4" data-src="%BASE_URL%img/hero-humanitarian-2400.webp" data-srcset="%BASE_URL%img/hero-humanitarian-1200.webp 1200w, %BASE_URL%img/hero-humanitarian-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="" style="--pos: 62% 42%; --pos-m: 70% 30%" />
+          </div>
+          <div class="hero__shade" aria-hidden="true"></div>
+          <div class="hero__grid" aria-hidden="true"></div>
+
+          <div class="hero__content">
+            <div class="hero__copy" aria-live="polite">
+              <p class="eyebrow" data-hero-eyebrow data-i18n-skip>Immigration support, made clearer</p>
+              <h1 class="hero__title" data-hero-title data-i18n-skip>Your immigration process deserves a clear path forward.</h1>
+              <p class="hero__lead" data-hero-body data-i18n-skip>From the first conversation to document preparation, review, filing and follow-up, Prisma Provider helps you stay organized and understand what comes next.</p>
+              <div class="hero__actions">
+                <a class="btn btn--lime" href="#services" data-hero-cta><span data-i18n-skip>Find your service</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-d"/></svg></a>
+                <a class="btn btn--glass" href="#book">Book a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              </div>
+            </div>
+
+            <aside class="rating glass" aria-label="Client rating">
+              <div class="rating__stars" role="img" aria-label="5 out of 5 stars">
+                <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+              </div>
+              <p class="rating__title">Trusted by clients across all 50 states</p>
+              <p class="rating__meta">Verified Google reviews</p>
+            </aside>
+          </div>
+
+          <div class="hero__footer">
+            <p class="hero__trust"><span class="pulse" aria-hidden="true"></span>Fully digital · Nationwide · Multilingual</p>
+            <div class="hero__tabs" role="tablist" aria-label="Hero stories">
+              <button class="hero__tab is-active" role="tab" type="button" aria-selected="true" data-slide="0"><span class="hero__tab-label">Your path forward</span><i><b></b></i></button>
+              <button class="hero__tab" role="tab" type="button" aria-selected="false" tabindex="-1" data-slide="1"><span class="hero__tab-label">Adjustment of status</span><i><b></b></i></button>
+              <button class="hero__tab" role="tab" type="button" aria-selected="false" tabindex="-1" data-slide="2"><span class="hero__tab-label">Naturalization</span><i><b></b></i></button>
+              <button class="hero__tab" role="tab" type="button" aria-selected="false" tabindex="-1" data-slide="3"><span class="hero__tab-label">Removal of conditions</span><i><b></b></i></button>
+              <button class="hero__tab" role="tab" type="button" aria-selected="false" tabindex="-1" data-slide="4"><span class="hero__tab-label">Humanitarian cases</span><i><b></b></i></button>
+            </div>
+            <button class="hero__pause" type="button" aria-pressed="false" aria-label="Pause slideshow"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg></button>
+          </div>
+        </div>
+
+        <dl class="stats shell" aria-label="Prisma in numbers">
+          <div class="stats__item"><dt>Case load</dt><dd><span data-count="200">200</span><sup>+</sup></dd></div>
+          <div class="stats__item"><dt>Approval rate</dt><dd><span data-count="100">100</span><sup>%</sup></dd></div>
+          <div class="stats__item"><dt>States</dt><dd><span data-count="50">50</span><sup>+</sup></dd></div>
+          <div class="stats__item"><dt>Services provided</dt><dd><span data-count="8">8</span><sup>+</sup></dd></div>
+        </dl>
+      </section>
+
+      <!-- ================= ABOUT ================= -->
+      <section class="section about shell" id="about" aria-labelledby="about-title">
+        <div class="about__head">
+          <p class="label" data-reveal><span class="label__num">01</span>About Prisma</p>
+          <h2 class="h2 about__title" id="about-title" data-split data-i18n-skip>Immigration paperwork can be complicated. Working through it does not have to feel that way.</h2>
+          <div class="about__copy" data-reveal>
+            <p>Prisma Provider is a digital immigration services company focused on helping clients prepare and organize USCIS documentation with greater clarity and confidence.</p>
+            <p>We turn forms, documents, deadlines and requirements into a process you can actually understand.</p>
+            <a class="link" href="#team">Meet Prisma <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+          </div>
+        </div>
+        <figure class="about__figure" data-parallax-frame>
+          <img src="%BASE_URL%img/founders-paperwork.webp" width="880" height="587" loading="lazy" decoding="async" alt="Prisma's founders reviewing a client's documents together" data-parallax />
+          <figcaption><span class="accent">The paperwork matters.</span> So does the person behind it.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ================= SERVICES ================= -->
+      <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="shell">
+          <header class="section-head">
+            <div>
+              <p class="label" data-reveal><span class="label__num">02</span>How we can help</p>
+              <h2 class="h2" id="services-title" data-reveal>Start with where you are today.</h2>
+            </div>
+            <p class="section-head__note" data-reveal>Every immigration journey is different. Explore the service that best matches your situation and understand what the process may involve.</p>
+          </header>
+
+          <ul class="service-grid" role="list">
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Adjustment of Status">
+                <span class="service__index">01</span>
+                <img class="service__art" src="%BASE_URL%images/services/adjustment-of-status.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Permanent residence</span>
+                <span class="service__title">Adjustment of Status</span>
+                <span class="service__desc">Applying for permanent residency from inside the United States?</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Removal of Conditions">
+                <span class="service__index">02</span>
+                <img class="service__art" src="%BASE_URL%images/services/Swipe%20options-bro.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Conditional Green Card</span>
+                <span class="service__title">Removal of Conditions</span>
+                <span class="service__desc">Prepare the evidence and documentation involved in the I-751 process.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Naturalization">
+                <span class="service__index">03</span>
+                <img class="service__art" src="%BASE_URL%images/services/naturalization.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Citizenship</span>
+                <span class="service__title">Naturalization</span>
+                <span class="service__desc">Prepare your naturalization process with clear instructions and support.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="VAWA">
+                <span class="service__index">04</span>
+                <img class="service__art" src="%BASE_URL%images/services/vawa.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Confidential support</span>
+                <span class="service__title">VAWA</span>
+                <span class="service__desc">Respectful and discreet document preparation for qualifying cases.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Asylum">
+                <span class="service__index">05</span>
+                <img class="service__art" src="%BASE_URL%images/services/asylum.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Humanitarian filing</span>
+                <span class="service__title">Asylum</span>
+                <span class="service__desc">Understand the documentation and preparation involved before filing.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="RFE / USCIS Request">
+                <span class="service__index">06</span>
+                <img class="service__art" src="%BASE_URL%images/services/uscis-requests.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">RFE · Inquiries · Expedites</span>
+                <span class="service__title">USCIS Requests</span>
+                <span class="service__desc">Document preparation support for requests and related USCIS matters.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Translation">
+                <span class="service__index">07</span>
+                <img class="service__art" src="%BASE_URL%images/services/translations.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">Immigration documents</span>
+                <span class="service__title">Translations</span>
+                <span class="service__desc">Translation support for documents prepared for immigration-related use.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+            <li class="service" data-reveal>
+              <a class="service__link" href="#book" data-service="Other">
+                <span class="service__index">08</span>
+                <img class="service__art" src="%BASE_URL%images/services/other-services.svg" alt="" loading="lazy" width="320" height="240" />
+                <span class="service__cat">EAD · Travel · FOIA</span>
+                <span class="service__title">Other Services</span>
+                <span class="service__desc">Additional immigration document preparation services built around your needs.</span>
+                <span class="service__go" aria-hidden="true"><svg class="icon"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+            </li>
+          </ul>
+          <p class="services__foot" data-reveal><strong>Not sure which service fits?</strong> <a class="link" href="#book" data-service="I am not sure">Tell us what is happening and we can help identify the next step. <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></p>
+        </div>
+      </section>
+
+      <!-- ================= WHY PRISMA ================= -->
+      <section class="section why shell" id="why" aria-labelledby="why-title">
+        <header class="section-head">
+          <div>
+            <p class="label" data-reveal><span class="label__num">03</span>Why Prisma</p>
+            <h2 class="h2" id="why-title" data-reveal>You should know what is happening with your process.</h2>
+          </div>
+          <p class="section-head__note" data-reveal>Every file is handled the same way, whatever the category: documented, reviewed twice and explained back to you in the language you prefer.</p>
+        </header>
+        <ol class="why__grid" role="list">
+          <li class="why__item" data-reveal><span class="why__num">01</span><h3>You read the file first</h3><p>No package is filed before you have read it in full and confirmed every detail.</p></li>
+          <li class="why__item" data-reveal><span class="why__num">02</span><h3>Two reviews, always</h3><p>Both founders review every filing against the current USCIS requirements before it is sent.</p></li>
+          <li class="why__item why__item--signal" data-reveal><strong class="why__big">100%</strong><p>Digital process. Nothing requires you to travel to an office.</p></li>
+          <li class="why__item" data-reveal><span class="why__num">03</span><h3>Your language</h3><p>Consultations, checklists and explanations in English, Portuguese or Spanish.</p></li>
+          <li class="why__item" data-reveal><span class="why__num">04</span><h3>Notices answered</h3><p>If USCIS sends a request, the response follows the same protocol on the same deadline.</p></li>
+          <li class="why__item" data-reveal><span class="why__num">05</span><h3>One record, kept</h3><p>Every document, receipt number and notice stays in one place you can return to.</p></li>
+        </ol>
+      </section>
+
+      <!-- ================= PROCESS ================= -->
+      <section class="section process" id="process" aria-labelledby="process-title">
+        <div class="shell">
+          <header class="section-head">
+            <div>
+              <p class="label" data-reveal><span class="label__num">04</span>How it works</p>
+              <h2 class="h2" id="process-title" data-reveal>From the first conversation to the final package, you will know what comes next.</h2>
+            </div>
+            <p class="section-head__note" data-reveal>A clear path, broken into manageable steps.</p>
+          </header>
+
+          <div class="process__layout">
+            <div class="process__panel" aria-hidden="true">
+              <div class="journey glass">
+                <div class="journey__top"><span class="journey__label">Your case</span><span class="journey__status"><i></i><span data-journey-status data-i18n-skip>Start</span></span></div>
+                <div class="journey__num"><span data-journey-num>01</span><small>/ 09</small></div>
+                <p class="journey__title" data-journey-title data-i18n-skip>Tell us about your situation</p>
+                <div class="journey__bar"><span data-journey-bar></span></div>
+                <ol class="journey__dots" data-journey-dots>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ol>
+              </div>
+            </div>
+
+            <ol class="steps" data-steps>
+              <li class="step is-active" data-step="1"><span class="step__num">01</span><div><p class="step__kicker">Start</p><h3>Tell us about your situation</h3><p>Book a consultation and share what you need help with.</p></div></li>
+              <li class="step" data-step="2"><span class="step__num">02</span><div><p class="step__kicker">Understand</p><h3>We understand your case</h3><p>We review your situation and identify an appropriate service.</p></div></li>
+              <li class="step" data-step="3"><span class="step__num">03</span><div><p class="step__kicker">Choose</p><h3>Choose your service</h3><p>We explain scope, payment and next steps before you move forward.</p></div></li>
+              <li class="step" data-step="4"><span class="step__num">04</span><div><p class="step__kicker">Gather</p><h3>Gather your documents</h3><p>You receive a clear checklist of what needs to be provided.</p></div></li>
+              <li class="step" data-step="5"><span class="step__num">05</span><div><p class="step__kicker">Prepare</p><h3>We prepare your package</h3><p>Our team organizes forms and supporting documentation.</p></div></li>
+              <li class="step" data-step="6"><span class="step__num">06</span><div><p class="step__kicker">Review</p><h3>Structured review</h3><p>You confirm the information before the package is finalized.</p></div></li>
+              <li class="step" data-step="7"><span class="step__num">07</span><div><p class="step__kicker">File</p><h3>Ready to file</h3><p>Final documentation is prepared for the appropriate filing process.</p></div></li>
+              <li class="step" data-step="8"><span class="step__num">08</span><div><p class="step__kicker">Stay connected</p><h3>Now you wait. We stay connected.</h3><p>We help you understand updates related to the service provided.</p></div></li>
+              <li class="step step--final" data-step="9"><span class="step__num">09</span><div><p class="step__kicker">Next chapter</p><h3>Careful preparation moves the journey forward.</h3><a class="btn btn--lime" href="#book">Start with a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SUCCESS STORIES ================= -->
+      <section class="section stories shell" id="stories" aria-labelledby="stories-title">
+        <header class="section-head">
+          <div>
+            <p class="label" data-reveal><span class="label__num">05</span>Success stories</p>
+            <h2 class="h2" id="stories-title" data-reveal>Anonymized cases, start to decision.</h2>
+          </div>
+          <p class="section-head__note" data-reveal>Each story records what the file looked like when it arrived, what we prepared, and what USCIS decided. Case results vary based on individual circumstances and USCIS decisions.</p>
+        </header>
+
+        <div class="cases">
+          <article class="case glass" data-reveal>
+            <p class="case__cat">Adjustment of Status</p>
+            <h3>Approved after a notice asked for the documents nobody had gathered</h3>
+            <p class="case__body">A married couple came to us three weeks before an RFE deadline, with a filing prepared elsewhere and no copy of what had been sent.</p>
+            <ul class="case__list"><li>Notice broken into items</li><li>Record rebuilt</li><li>Two reviews and a client read</li><li>Filed with nine days to spare</li></ul>
+            <div class="case__outcome"><span>Outcome</span><strong>Approved</strong></div>
+          </article>
+          <article class="case glass" data-reveal>
+            <p class="case__cat">Naturalization</p>
+            <h3>A travel history that looked disqualifying, documented properly</h3>
+            <p class="case__body">Frequent trips home for a family illness raised a continuous residence question. The record answered it.</p>
+            <ul class="case__list"><li>Eligibility checked first</li><li>Absences explained</li><li>Interview preparation</li><li>One interview</li></ul>
+            <div class="case__outcome"><span>Outcome</span><strong>Naturalized</strong></div>
+          </article>
+          <article class="case glass" data-reveal>
+            <p class="case__cat">VAWA</p>
+            <h3>A self-petition prepared without a single letter arriving at home</h3>
+            <p class="case__body">The filing had to be invisible at a shared address. Every communication was routed away from it.</p>
+            <ul class="case__list"><li>Safe channels first</li><li>Declaration built in stages</li><li>Evidence without police records</li><li>Filed confidentially</li></ul>
+            <div class="case__outcome"><span>Outcome</span><strong>Approved</strong></div>
+          </article>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="reviews" aria-labelledby="reviews-title">
+          <div class="reviews__head">
+            <h3 class="h3" id="reviews-title" data-reveal>What our clients say</h3>
+            <button class="btn btn--glass btn--sm reviews__toggle" type="button" aria-pressed="false" data-marquee-toggle hidden><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg><span>Pause motion</span></button>
+          </div>
+          <div class="reviews__cols" data-marquee>
+            <ul class="reviews__col" role="list">
+              <li class="review"><blockquote lang="pt-BR">“Meu approval chegou mais rápido que o esperado. Pela primeira vez eu sabia o que estava no meu processo.”</blockquote><p class="review__who"><span class="review__av" aria-hidden="true">AR</span><span><strong>Ana R.</strong><small>Google review</small></span></p></li>
+              <li class="review"><blockquote>“The RFE arrived and they had the response organized in eleven days. Nine days early.”</blockquote><p class="review__who"><span class="review__av" aria-hidden="true">RT</span><span><strong>Rafael T.</strong><small>Google review</small></span></p></li>
+            </ul>
+            <ul class="reviews__col" role="list">
+              <li class="review"><blockquote>“They explained every document before it was sent. I never felt like I was guessing.”</blockquote><p class="review__who"><span class="review__av" aria-hidden="true">MJ</span><span><strong>Marcus J.</strong><small>Google review</small></span></p></li>
+              <li class="review"><blockquote lang="es">“Respondieron cada pregunta en mi idioma, sin apuro y sin promesas falsas.”</blockquote><p class="review__who"><span class="review__av" aria-hidden="true">JS</span><span><strong>Julia S.</strong><small>Google review</small></span></p></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TEAM ================= -->
+      <section class="section team shell" id="team" aria-labelledby="team-title">
+        <header class="team__head">
+          <p class="label" data-reveal><span class="label__num">06</span>Who we are</p>
+          <h2 class="h2" id="team-title" data-reveal>Meet the people <span class="accent">behind Prisma</span></h2>
+          <p class="section-head__note" data-reveal>Prisma was built around a simple idea: immigration services should feel organized, transparent and human.</p>
+        </header>
+
+        <article class="founder">
+          <figure class="founder__photo" data-mask><img src="%BASE_URL%img/leandro-krauss.webp" width="1000" height="1499" loading="lazy" decoding="async" alt="Leandro Krauss, co-founder of Prisma Provider" style="object-position: 50% 30%" /></figure>
+          <div class="founder__copy" data-reveal>
+            <p class="founder__role">Co-Founder · Immigration Paralegal</p>
+            <h3 class="h3">Leandro Krauss</h3>
+            <p>Leandro oversees the full client journey with a sharp eye for detail, ensuring every case is handled with clarity, care and precision.</p>
+            <p class="founder__focus-title">Focus</p>
+            <ul class="founder__focus"><li>Client journey</li><li>Clear communication</li><li>Document preparation</li></ul>
+          </div>
+        </article>
+        <article class="founder founder--flip">
+          <figure class="founder__photo" data-mask><img src="%BASE_URL%img/jessica-wisniewski.webp" width="1024" height="683" loading="lazy" decoding="async" alt="Jessica Wisniewski, co-founder of Prisma Provider" style="object-position: 38% 40%" /></figure>
+          <div class="founder__copy" data-reveal>
+            <p class="founder__role">Co-Founder · Immigration Paralegal</p>
+            <h3 class="h3">Jessica Wisniewski</h3>
+            <p>Jessica leads operations and quality control, bringing precision, discipline and thoughtful care to every client package.</p>
+            <p class="founder__focus-title">Focus</p>
+            <ul class="founder__focus"><li>Operations</li><li>Quality control</li><li>Careful review</li></ul>
+          </div>
+        </article>
+        <p class="team__note glass" data-reveal><strong>Human communication.</strong> Questions come up. We explain the process in language that makes sense. <a class="link" href="#book">Get in touch <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></p>
+      </section>
+
+      <!-- ================= BOOK / CONTACT ================= -->
+      <section class="section book" id="book" aria-labelledby="book-title">
+        <div class="shell book__layout">
+          <div class="book__intro">
+            <p class="label" data-reveal><span class="label__num">07</span>Book a consultation</p>
+            <h2 class="h2" id="book-title" data-reveal>Tell us what is going on.</h2>
+            <p class="book__lead" data-reveal>You do not need to know the exact name of the form or service before contacting us. Tell us a little about your situation and our team will help you understand where to start.</p>
+            <ul class="book__channels" data-reveal>
+              <li><a href="https://wa.me/19298234645" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span><small>WhatsApp</small>+1 929 823 4645</span></a></li>
+              <li><a href="mailto:contact@prismaprovider.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span><small>Email</small>contact@prismaprovider.com</span></a></li>
+              <li><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0-WP04lMaC5SaGUWYBD9tX_NhOOfQaWyzdR_ME9srUCqlv6IsoM3TA3c6Plezoa6H15nwP1AV4" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg><span><small>Calendar</small>Pick a time directly</span></a></li>
+            </ul>
+          </div>
+
+          <div class="wizard glass" data-wizard data-reveal>
+            <div class="wizard__steps" aria-hidden="true">
+              <span class="is-current" data-wstep="1"><b>01</b><em>Service</em></span>
+              <span data-wstep="2"><b>02</b><em>Contact</em></span>
+              <span data-wstep="3"><b>03</b><em>Details</em></span>
+              <span data-wstep="4"><b>04</b><em>Review</em></span>
+            </div>
+            <form class="wizard__form" novalidate>
+              <fieldset class="wizard__pane" data-pane="1">
+                <legend class="wizard__q">Which service do you need?</legend>
+                <p class="wizard__hint">If you are unsure, choose the closest option. We will confirm the category during the call.</p>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="service" value="I am not sure" checked /><span>I am not sure</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Adjustment of Status" /><span>Adjustment of Status</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Removal of Conditions" /><span>Removal of Conditions</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Naturalization" /><span>Naturalization</span></label>
+                  <label class="chip"><input type="radio" name="service" value="VAWA" /><span>VAWA</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Asylum" /><span>Asylum</span></label>
+                  <label class="chip"><input type="radio" name="service" value="RFE / USCIS Request" /><span>RFE / USCIS Request</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Translation" /><span>Translation</span></label>
+                  <label class="chip"><input type="radio" name="service" value="Other" /><span>Other</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="wizard__pane" data-pane="2" hidden>
+                <legend class="wizard__q">How can we reach you?</legend>
+                <p class="wizard__hint">We use this only to confirm the consultation and send the documents checklist.</p>
+                <div class="fields">
+                  <div class="field field--full"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required placeholder="Your name" aria-describedby="e-name" /><p class="field__err" id="e-name">Please fill in this field.</p></div>
+                  <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required placeholder="you@email.com" aria-describedby="e-email" /><p class="field__err" id="e-email">Please enter a valid email address.</p></div>
+                  <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder="(000) 000-0000" aria-describedby="e-phone" /><p class="field__err" id="e-phone">Please fill in this field.</p></div>
+                  <div class="field"><label for="f-state">State</label><input id="f-state" name="state" autocomplete="address-level1" placeholder="Your state" /></div>
+                  <div class="field"><label for="f-lang">Preferred language</label><div class="select"><select id="f-lang" name="language"><option value="English">English</option><option value="Português">Português</option><option value="Español">Español</option></select></div></div>
+                </div>
+              </fieldset>
+              <fieldset class="wizard__pane" data-pane="3" hidden>
+                <legend class="wizard__q">Tell us briefly about your situation</legend>
+                <p class="wizard__hint">You do not need to include sensitive personal information here.</p>
+                <div class="field field--full"><label class="sr-only" for="f-msg">Tell us briefly about your situation</label><textarea id="f-msg" name="message" rows="6" placeholder="What has happened so far, and what would you like help with?"></textarea></div>
+              </fieldset>
+              <fieldset class="wizard__pane" data-pane="4" hidden>
+                <legend class="wizard__q">Review and send</legend>
+                <p class="wizard__hint">Your request opens in WhatsApp, ready to send. Then pick a consultation time in our calendar.</p>
+                <dl class="summary" data-summary data-i18n-skip></dl>
+                <div class="wizard__final">
+                  <button class="btn btn--lime" type="submit"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Send on WhatsApp</button>
+                  <a class="btn btn--prism" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0-WP04lMaC5SaGUWYBD9tX_NhOOfQaWyzdR_ME9srUCqlv6IsoM3TA3c6Plezoa6H15nwP1AV4" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-cal"/></svg>Pick a time in our calendar</a>
+                </div>
+                <p class="wizard__done" data-done role="status" aria-live="polite" data-i18n-skip></p>
+              </fieldset>
+
+              <div class="wizard__nav">
+                <button class="btn btn--glass btn--sm" type="button" data-back hidden><svg class="icon" aria-hidden="true"><use href="#i-arrow-l"/></svg><span>Back</span></button>
+                <p class="wizard__count" aria-live="polite" data-count-label data-i18n-skip>Step 1 of 4</p>
+                <button class="btn btn--lime btn--sm" type="button" data-next><span>Continue</span><svg class="icon" aria-hidden="true"><use href="#i-arrow-r"/></svg></button>
+              </div>
+            </form>
+            <p class="wizard__note">Nothing is charged here. Consultations run 30 minutes, weekdays, in English, Portuguese or Spanish.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <section class="section faq shell" id="faq" aria-labelledby="faq-title">
+        <div class="faq__intro">
+          <p class="label" data-reveal><span class="label__num">08</span>Frequently asked questions</p>
+          <h2 class="h2" id="faq-title" data-reveal>A few answers before we talk.</h2>
+          <p class="faq__still" data-reveal>Still have a question? <a class="link" href="https://wa.me/19298234645" target="_blank" rel="noopener">Talk to Prisma <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></p>
+        </div>
+        <div class="faq__list" data-reveal>
+          <details class="faq__item" open><summary>Do I need to live in New York to work with Prisma?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>No. Prisma Provider operates digitally and works with clients across the United States.</p></div></details>
+          <details class="faq__item"><summary>I do not know which service I need. Can I still contact you?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>Yes. Tell us about your situation and we can help identify which Prisma service may fit your needs.</p></div></details>
+          <details class="faq__item"><summary>How do I send my documents?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>Our process is digital. Once you begin a service, our team explains how to securely provide the documents and information needed.</p></div></details>
+          <details class="faq__item"><summary>Can Prisma help with a Request for Evidence?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>Prisma offers preparation support for certain RFEs and USCIS requests. Schedule a consultation so we can understand what you received.</p></div></details>
+          <details class="faq__item"><summary>How long will my immigration process take?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>Processing times vary by application type, location and individual circumstances. USCIS determines government timelines and final decisions.</p></div></details>
+          <details class="faq__item"><summary>Can you guarantee my case will be approved?<span class="faq__icon" aria-hidden="true"></span></summary><div class="faq__a"><p>No immigration service can guarantee a USCIS decision. Our role is to prepare and organize your documentation carefully and clearly.</p></div></details>
+        </div>
+      </section>
+
+      <!-- ================= SOCIAL ================= -->
+      <section class="section social shell" aria-labelledby="social-title">
+        <div class="social__card glass">
+          <a class="social__phone" href="https://www.instagram.com/prismaprovider/" target="_blank" rel="noopener" aria-label="Open Prisma on Instagram" data-reveal>
+            <img src="%BASE_URL%img/instagram-feed.webp" width="720" height="1280" loading="lazy" decoding="async" alt="" />
+          </a>
+          <div class="social__copy">
+            <p class="label" data-reveal>Stay connected</p>
+            <h2 class="h2" id="social-title" data-reveal>Your path does not have to feel confusing.</h2>
+            <p data-reveal>Follow Prisma for practical immigration information, process updates, client stories and answers to the questions people ask us every day.</p>
+            <div class="social__actions" data-reveal>
+              <a class="btn btn--lime" href="https://www.instagram.com/prismaprovider/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-insta"/></svg>Follow on Instagram</a>
+              <a class="btn btn--glass" href="https://wa.me/19298234645" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>Message on WhatsApp</a>
+              <a class="btn btn--glass" href="mailto:contact@prismaprovider.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email Prisma</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CLOSING CTA ================= -->
+      <section class="closing shell" aria-labelledby="closing-title">
+        <div class="closing__card">
+          <div class="closing__prism" aria-hidden="true"><img src="%BASE_URL%img/prism.webp" alt="" loading="lazy" data-drift /></div>
+          <div class="closing__copy">
+            <p class="label" data-reveal>Your next step</p>
+            <h2 class="h2" id="closing-title" data-reveal>You do not have to figure out every step before asking for help.</h2>
+            <p data-reveal>Tell us where you are in your immigration process. We will help you understand what comes next, organize what is needed and keep the process moving.</p>
+            <div class="closing__actions" data-reveal>
+              <a class="btn btn--prism" href="#book">Book a consultation <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a>
+              <a class="btn btn--glass" href="#services">Explore services</a>
+            </div>
+          </div>
+          <img class="closing__founders" src="%BASE_URL%img/founders-cutout.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Leandro Krauss and Jessica Wisniewski, Prisma's founders" />
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer shell">
+      <div class="footer__card">
+        <div class="footer__top">
+          <div>
+            <img class="footer__logo" src="%BASE_URL%img/logo-color.webp" width="1110" height="151" alt="Prisma Provider — Digital Services" loading="lazy" />
+            <p class="footer__tag">Clear immigration support for the journey ahead.</p>
+            <p class="footer__sub">Fully digital, structured and human-centered immigration document preparation.</p>
+          </div>
+          <nav class="footer__cols" aria-label="Footer">
+            <div><h2>Services</h2><ul><li><a href="#services">Adjustment of Status</a></li><li><a href="#services">Naturalization</a></li><li><a href="#services">VAWA</a></li><li><a href="#services">USCIS Requests</a></li></ul></div>
+            <div><h2>Prisma</h2><ul><li><a href="#about">About</a></li><li><a href="#stories">Success stories</a></li><li><a href="#process">Our process</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+            <div><h2>Connect</h2><ul><li><a href="https://www.instagram.com/prismaprovider/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://wa.me/19298234645" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:contact@prismaprovider.com">Email</a></li></ul></div>
+          </nav>
+        </div>
+        <div class="footer__legal">
+          <p>Prisma Provider is not a law firm and does not provide legal representation. Information on this website is general and is not legal advice.</p>
+          <p>© <span data-year>2026</span> Prisma Provider</p>
+        </div>
+      </div>
+    </footer>
+
+    <a class="wa-float" href="https://wa.me/19298234645" target="_blank" rel="noopener" aria-label="Message Prisma on WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>WhatsApp</span></a>
+
     <script type="module" src="/src/main.js"></script>
-    <script type="module" src="/src/removal-illustration.js"></script>
-    <script type="module" src="/src/service-illustration-layout.js"></script>
-    <script type="module" src="/src/about-stats.js"></script>
-    <script type="module" src="/src/enhancements.js"></script>
-    <script type="module" src="/src/team-redesign.js"></script>
-    <script type="module" src="/src/final-tweaks.js"></script>
-    <script type="module" src="/src/next-step-image.js"></script>
-    <script type="module" src="/src/about-image-tweaks.js"></script>
-    <script type="module" src="/src/reference-layouts.js"></script>
-    <script type="module" src="/src/why-prisma-reference.js"></script>
-    <script type="module" src="/src/consultation-booking.js"></script>
-    <script type="module" src="/src/language-switcher-guard.js"></script>
-    <script type="module" src="/src/language-switcher.js"></script>
-    <script type="module" src="/src/language-switcher-fix.js"></script>
-    <script type="module" src="/src/requested-adjustments.js"></script>
-    <script type="module" src="/src/process-timeline.js"></script>
-    <script type="module" src="/src/notion-finalization.tsx"></script>
-    <script type="module" src="/src/apple-refinement.js"></script>
   </body>
 </html>
