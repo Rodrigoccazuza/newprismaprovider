@@ -461,10 +461,10 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   .hero__copy .eyebrow { display: none; }
   .hero__title {
     order: 1;
-    width: 100%;
+    width: calc(100% + 20px);
     max-width: none;
     margin-top: 0;
-    margin-inline: auto;
+    margin-inline: -10px;
     font-size: clamp(2rem, 9vw, 2.7rem);
     line-height: 1;
     text-align: center;
