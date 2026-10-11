@@ -379,119 +379,126 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .about__figure figcaption { position: absolute; z-index: 1; left: clamp(1.25rem, 4vw, 3.5rem); bottom: clamp(1.25rem, 4vw, 3.5rem); max-width: 15ch; font-size: clamp(1.75rem, 1rem + 2.6vw, 3.25rem); font-weight: 500; line-height: 1.02; letter-spacing: var(--track-h); }
 @media (max-width: 767px) { .about__figure { aspect-ratio: 4 / 5; } .about__figure img { object-position: 45% 30%; } }
 
-/* Services — premium photo-led cards */
+/* Services — full-bleed editorial photography */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--gutter);
 }
 .service { min-width: 0; }
+
 .service__link {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
-  align-content: start;
-  height: 100%;
-  padding: var(--s5);
-  border: 1px solid var(--line);
-  border-radius: var(--r-md);
-  background:
-    radial-gradient(110% 60% at 50% 4%, rgba(80, 103, 135, .09), transparent 62%),
-    linear-gradient(160deg, #111416 0%, #07090a 100%);
-  box-shadow: var(--inset), 0 20px 50px rgba(0, 0, 0, .3);
-  transition:
-    transform 320ms var(--ease-out),
-    border-color 240ms ease,
-    box-shadow 320ms var(--ease-out),
-    background-color 240ms ease;
-}
-.service__index {
-  position: absolute;
-  top: var(--s5);
-  left: var(--s5);
-  z-index: 2;
-  color: var(--lime);
-  font-size: var(--fs-label);
-  font-weight: 650;
-  letter-spacing: .12em;
-  font-variant-numeric: tabular-nums;
-}
-.service__art {
   display: block;
   width: 100%;
-  height: clamp(250px, 23vw, 330px);
-  margin: 3.25rem 0 var(--s5);
-  border: 1px solid rgba(255, 255, 255, .08);
-  border-radius: calc(var(--r-md) - 6px);
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--r-md);
+  background: #07090a;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 18px 44px rgba(0,0,0,.28);
+  transition:
+    transform 360ms var(--ease-out),
+    border-color 260ms ease,
+    box-shadow 360ms var(--ease-out);
+}
+.service__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 4, 6, .05) 20%,
+      rgba(2, 4, 6, .12) 40%,
+      rgba(2, 4, 6, .42) 62%,
+      rgba(2, 4, 6, .88) 83%,
+      rgba(2, 4, 6, .97) 100%
+    );
+  transition: background 320ms ease;
+}
+.service__art {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   object-fit: cover;
   object-position: 50% 50%;
-  background: #080a0c;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.06),
-    0 16px 34px rgba(0,0,0,.24);
-  filter: saturate(.82) contrast(1.04) brightness(.9);
-  transform: translateZ(0);
+  background: #07090a;
+  filter: saturate(.88) contrast(1.03) brightness(.9);
+  transform: scale(1.002);
   transition:
-    transform 600ms var(--ease-out),
-    filter 320ms ease,
-    box-shadow 320ms ease;
+    transform 700ms cubic-bezier(.22,1,.36,1),
+    filter 360ms ease;
+}
+.service__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.15rem, 1rem + .8vw, 1.75rem);
 }
 .service__cat {
-  color: var(--quiet);
-  font-size: .6875rem;
+  color: rgba(214, 222, 230, .72);
+  font-size: .65rem;
   font-weight: 650;
   letter-spacing: .14em;
   text-transform: uppercase;
 }
 .service__title {
-  margin-top: var(--s2);
-  font-size: 1.25rem;
+  margin-top: .5rem;
+  color: #fff;
+  font-size: clamp(1.2rem, 1rem + .55vw, 1.55rem);
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -.03em;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+  text-wrap: balance;
 }
 .service__desc {
-  margin-top: var(--s2);
-  color: var(--soft);
-  font-size: var(--fs-small);
-  line-height: 1.55;
+  margin-top: .65rem;
+  max-width: 31ch;
+  color: rgba(238, 242, 246, .76);
+  font-size: clamp(.78rem, .72rem + .18vw, .9rem);
+  line-height: 1.5;
 }
-.service__go {
-  position: absolute;
-  top: var(--s4);
-  right: var(--s4);
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--lime);
-  color: var(--void);
-  box-shadow: 0 8px 22px rgba(193, 255, 114, .18);
-  transition: transform 320ms var(--ease-out), box-shadow 240ms ease;
-}
+
 @media (hover: hover) and (pointer: fine) {
   .service__link:hover {
     transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, .24);
-    box-shadow: var(--inset), 0 30px 70px rgba(0, 0, 0, .44);
+    border-color: rgba(181, 193, 204, .30);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.06),
+      0 28px 64px rgba(0,0,0,.44);
   }
-  .service__link:hover .service__go {
-    transform: rotate(45deg) scale(1.04);
-    box-shadow: 0 12px 28px rgba(193, 255, 114, .24);
+  .service__link:hover::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 4, 6, .02) 18%,
+        rgba(2, 4, 6, .08) 40%,
+        rgba(2, 4, 6, .36) 61%,
+        rgba(2, 4, 6, .84) 82%,
+        rgba(2, 4, 6, .96) 100%
+      );
   }
   .service__link:hover .service__art {
-    transform: translateY(-3px) scale(1.025);
-    filter: saturate(.9) contrast(1.05) brightness(.98);
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.08),
-      0 22px 44px rgba(0,0,0,.34);
+    transform: scale(1.045);
+    filter: saturate(.94) contrast(1.04) brightness(.98);
   }
 }
-.service__link:active { transform: scale(.985); }
+.service__link:active { transform: scale(.988); }
+
 .services__foot {
   margin-top: var(--s6);
   color: var(--soft);
@@ -504,10 +511,8 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
 @media (max-width: 1099px) {
   .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .service__art { height: clamp(280px, 43vw, 390px); }
 }
 @media (max-width: 639px) {
-  /* Swipeable rail on phones: keeps the service set browseable without an 8-card wall. */
   .service-grid {
     grid-template-columns: none;
     grid-auto-flow: column;
@@ -521,21 +526,15 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   }
   .service-grid::-webkit-scrollbar { display: none; }
   .service { scroll-snap-align: start; }
-  .service__link { padding: var(--s4); }
-  .service__index { top: var(--s4); left: var(--s4); }
-  .service__art {
-    height: 300px;
-    margin: 3rem 0 var(--s4);
-    border-radius: calc(var(--r-md) - 8px);
-  }
+  .service__content { padding: 1.25rem; }
+  .service__title { font-size: 1.35rem; }
+  .service__desc { font-size: .84rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .service__link,
-  .service__art,
-  .service__go { transition: none; }
+  .service__art { transition: none; }
   .service__link:hover,
-  .service__link:hover .service__art,
-  .service__link:hover .service__go { transform: none; }
+  .service__link:hover .service__art { transform: none; }
 }
 
 /* Why Prisma — 3×2, no dead cells */
